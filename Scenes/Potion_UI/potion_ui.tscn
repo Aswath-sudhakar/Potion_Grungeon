@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bqd3ecol533ad"]
+
+[ext_resource type="Script" uid="uid://clqlmtgrc4uxw" path="res://Scenes/Potion_UI/potion_ui.gd" id="1_lk7ml"]
+[ext_resource type="Texture2D" uid="uid://dlj04miipohcf" path="res://icon.svg" id="1_ykl16"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lk7ml"]
+size = Vector2(40, 40)
+
+[node name="PotionUI" type="Control" unique_id=1823905950]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1112.0
+offset_bottom = -608.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_lk7ml")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=445201349]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0.09411765, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect" unique_id=508923349]
+position = Vector2(20.000002, 19)
+scale = Vector2(0.15625001, 0.15624997)
+texture = ExtResource("1_ykl16")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1155376844]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1431104077]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_lk7ml")

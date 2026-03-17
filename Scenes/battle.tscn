@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://djp31fxutini3"]
+
+[ext_resource type="PackedScene" uid="uid://bqd3ecol533ad" path="res://Scenes/Potion_UI/potion_ui.tscn" id="1_w7k78"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxf17"]
+size = Vector2(1155, 248)
+
+[node name="Battle" type="Node2D" unique_id=194149810]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=264503178]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1007843163]
+position = Vector2(578, 124)
+shape = SubResource("RectangleShape2D_oxf17")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=912074230]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1171924757]
+offset_left = 515.0
+offset_top = 410.0
+offset_right = 643.0
+offset_bottom = 454.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PotionUI" parent="CanvasLayer/HBoxContainer" unique_id=1823905950 instance=ExtResource("1_w7k78")]
+layout_mode = 2
+
+[node name="PotionUI2" parent="CanvasLayer/HBoxContainer" unique_id=589808255 instance=ExtResource("1_w7k78")]
+layout_mode = 2
+
+[node name="PotionUI3" parent="CanvasLayer/HBoxContainer" unique_id=385344110 instance=ExtResource("1_w7k78")]
+layout_mode = 2
