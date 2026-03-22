@@ -132,11 +132,19 @@ actor_name = "Player"
 position = Vector2(195, 68)
 texture = ExtResource("10_upb72")
 
-[node name="PlayerHealthbar" parent="PlayerActor" unique_id=1250862296 instance=ExtResource("11_heh15")]
-offset_left = 169.0
-offset_top = 218.0
-offset_right = 209.0
-offset_bottom = 299.0
+[node name="PlayerHealthbar" parent="PlayerActor/Sprite2D" unique_id=1250862296 instance=ExtResource("11_heh15")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -241.0
+offset_top = -130.0
+offset_right = -27.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 8
 
 [node name="EnemyActor" type="Node" parent="." unique_id=724783587]
 script = ExtResource("3_1otgo")
@@ -147,8 +155,15 @@ actor_name = "Slime"
 position = Vector2(941, 164)
 texture = ExtResource("12_rssjf")
 
-[node name="EnemyHealthbar" parent="EnemyActor" unique_id=1544117671 instance=ExtResource("11_heh15")]
-offset_left = 928.0
-offset_top = 253.0
-offset_right = 968.0
-offset_bottom = 334.0
+[node name="EnemyHealthbar" parent="EnemyActor/Sprite2D" unique_id=1544117671 instance=ExtResource("11_heh15")]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = 14.0
+offset_right = -17.0
+offset_bottom = 147.0
+grow_horizontal = 0
+grow_vertical = 2

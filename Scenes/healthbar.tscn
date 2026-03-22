@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://35l2hgcvtle2" path="res://Scenes/health_bar.gd" id="1_k4tqu"]
 
 [node name="Healthbar" type="VBoxContainer" unique_id=1250862296]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 199.0
+offset_bottom = 133.0
 script = ExtResource("1_k4tqu")
 
 [node name="Health_Bar" type="ProgressBar" parent="." unique_id=1678215828]
@@ -12,6 +12,12 @@ layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="." unique_id=2011112115]
 layout_mode = 2
+size_flags_horizontal = 4
+text = "test
+"
 
 [node name="HPLabel" type="Label" parent="." unique_id=1300709548]
 layout_mode = 2
+size_flags_horizontal = 4
+text = "test
+"

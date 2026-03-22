@@ -15,8 +15,8 @@ func setup(p_combat_manager: combat_manager) -> void:
 		$PotionRow/StackUI1,
 		$PotionRow/StackUI2,
 	]
-	PlayerHealthbar = $"../PlayerActor/PlayerHealthbar"
-	EnemyHealthbar = $"../EnemyActor/EnemyHealthbar"
+	PlayerHealthbar = $"../PlayerActor/Sprite2D/PlayerHealthbar"
+	EnemyHealthbar = $"../EnemyActor/Sprite2D/EnemyHealthbar"
 	PlayerHealthbar.setup(Combat_manager.player)
 	EnemyHealthbar.setup(Combat_manager.enemy)
 	end_turn_btn = $EndTurnButton
