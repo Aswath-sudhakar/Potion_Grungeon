@@ -17,5 +17,6 @@ func generate_intent() -> void:
 	intent_changed.emit(next_attack)
 
 func take_turn(target: CombatActor) -> void:
+	print(actor_name, " attacks for ", next_attack, " damage!")
 	target.take_damage(next_attack)
 	generate_intent()  # show next turn's attack immediately after

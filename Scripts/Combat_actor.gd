@@ -12,6 +12,7 @@ func _ready() -> void:
 	current_hp = max_hp
 
 func take_damage(amount: int) -> void:
+	print(actor_name, " took ", amount, " damage! HP: ", current_hp, " -> ", max(0, current_hp - amount))
 	current_hp = max(0, current_hp - amount)
 	hp_changed.emit(current_hp, max_hp)
 	if current_hp <= 0:

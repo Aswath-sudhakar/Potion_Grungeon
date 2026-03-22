@@ -109,6 +109,8 @@ text = "End Turn
 
 [node name="PlayerActor" type="Node" parent="." unique_id=1649066488]
 script = ExtResource("2_1ruyk")
+actor_name = "Player"
 
 [node name="EnemyActor" type="Node" parent="." unique_id=724783587]
 script = ExtResource("3_1otgo")
+actor_name = "Slime"
