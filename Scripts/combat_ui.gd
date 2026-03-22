@@ -5,6 +5,8 @@ var stack_uis: Array = []
 var Combat_manager: combat_manager
 var selected_index: int = -1
 var end_turn_btn: Button
+var PlayerHealthbar: HealthBar
+var EnemyHealthbar: HealthBar
 
 func setup(p_combat_manager: combat_manager) -> void:
 	Combat_manager = p_combat_manager
@@ -13,6 +15,10 @@ func setup(p_combat_manager: combat_manager) -> void:
 		$PotionRow/StackUI1,
 		$PotionRow/StackUI2,
 	]
+	PlayerHealthbar = $"../PlayerActor/PlayerHealthbar"
+	EnemyHealthbar = $"../EnemyActor/EnemyHealthbar"
+	PlayerHealthbar.setup(Combat_manager.player)
+	EnemyHealthbar.setup(Combat_manager.enemy)
 	end_turn_btn = $EndTurnButton
 	end_turn_btn.pressed.connect(_on_end_turn_pressed)
 	for ui in stack_uis:

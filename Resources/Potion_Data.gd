@@ -20,11 +20,24 @@ func _apply_drink_effect(user: CombatActor) -> void:
 				user.heal(effect.value)
 			PotionEffect.EffectType.BUFF:
 				user.apply_buff(effect.stat_target, effect.value)
-
+			PotionEffect.EffectType.DAMAGE:
+				user.take_damage(effect.value)
+			PotionEffect.EffectType.DEBUFF:
+				user.apply_buff(effect.stat_target, -effect.value)
+			PotionEffect.EffectType.STATUS:
+				user.apply_status_effects(effect.status_to_apply)
 func _apply_throw_effect(target: CombatActor) -> void:
+	print("Throwing at: ", target)
 	for effect in throw_effects:
 		match effect.effect_type:
 			PotionEffect.EffectType.DAMAGE:
-				target.take_damage(effect.value)
+				target.take_damage(effect.value, effect.damage_type)
 			PotionEffect.EffectType.DEBUFF:
 				target.apply_buff(effect.stat_target, -effect.value)
+			PotionEffect.EffectType.HEAL:
+				target.heal(effect.value)
+			PotionEffect.EffectType.BUFF:
+				target.apply_buff(effect.stat_target, effect.value)
+			PotionEffect.EffectType.STATUS:
+				target.apply_status_effects(effect.status_to_apply)
+			

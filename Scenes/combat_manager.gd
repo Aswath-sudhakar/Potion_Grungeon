@@ -39,6 +39,7 @@ func use_potion(stack_index: int, action: Potion_manager.PotionAction) -> void:
 	if not stack.can_use():
 		return
 	stack.use_top(action, player, enemy)
+	print("enemy status effects after potion", enemy.Status_effects.size())
 	turn_manager.on_potion_used()
 	if not turn_manager.check_combat_end(player, enemy):
 		combat_ui.refresh_all()
@@ -50,10 +51,17 @@ func end_player_turn() -> void:
 	_run_enemy_turn()
 
 func _run_enemy_turn() -> void:
-	enemy.take_turn(player)
+	enemy.process_status()
+	
 	if not turn_manager.check_combat_end(player, enemy):
-		turn_manager.end_enemy_turn()
-		combat_ui.refresh_all()
+		enemy.take_turn(player)
+		
+		if not turn_manager.check_combat_end(player, enemy):
+			player.process_status()
+			
+			if not turn_manager.check_combat_end(player, enemy):
+				turn_manager.end_enemy_turn()
+				combat_ui.refresh_all()
 
 func _on_turn_changed(new_state: TurnManager.TurnState) -> void:
 	combat_ui.on_turn_changed(new_state)
