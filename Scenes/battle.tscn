@@ -1,33 +1,105 @@
 [gd_scene format=3 uid="uid://djp31fxutini3"]
 
-[ext_resource type="PackedScene" uid="uid://bqd3ecol533ad" path="res://Scenes/Potion_UI/potion_ui.tscn" id="1_w7k78"]
+[ext_resource type="Script" uid="uid://j0du0yqabp6h" path="res://Scenes/combat_manager.gd" id="1_w7k78"]
+[ext_resource type="Script" uid="uid://dwks5utkbt2nj" path="res://Scripts/combat_ui.gd" id="2_1otgo"]
+[ext_resource type="Script" uid="uid://c5j5liomrp17d" path="res://Scripts/Player.gd" id="2_1ruyk"]
+[ext_resource type="Script" uid="uid://dhvpsegrya5i8" path="res://Resources/Potion_Data.gd" id="2_lrv64"]
+[ext_resource type="Script" uid="uid://5dcdornnpsva" path="res://Scripts/Enemy_actor.gd" id="3_1otgo"]
+[ext_resource type="Resource" uid="uid://edi8wo8s5c4x" path="res://Resources/Potions/Ice_potion.tres" id="3_qeyqd"]
+[ext_resource type="Resource" uid="uid://cu8fvobxb7ohn" path="res://Resources/Potions/Fire_potion.tres" id="4_k7mbx"]
+[ext_resource type="Resource" uid="uid://nf6ubl38gf5" path="res://Resources/Potions/Lightning_potion.tres" id="5_upb72"]
+[ext_resource type="Resource" uid="uid://vjfvyqm85hym" path="res://Resources/Potions/Poison_potion.tres" id="6_k7mbx"]
+[ext_resource type="Script" uid="uid://c7jj6uqsqxbwq" path="res://Scenes/PotionStackUI.gd" id="7_qeyqd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxf17"]
-size = Vector2(1155, 248)
+[node name="Battle" type="Node" unique_id=1205009668]
 
-[node name="Battle" type="Node2D" unique_id=194149810]
+[node name="CombatManager" type="Node" parent="." unique_id=1206555097]
+script = ExtResource("1_w7k78")
+starting_potions = Array[ExtResource("2_lrv64")]([ExtResource("3_qeyqd"), ExtResource("4_k7mbx"), ExtResource("5_upb72"), ExtResource("6_k7mbx")])
 
-[node name="Area2D" type="Area2D" parent="." unique_id=264503178]
+[node name="Combat_UI" type="Control" parent="." unique_id=2009373637]
+layout_mode = 3
+anchors_preset = 0
+offset_bottom = 1.0
+script = ExtResource("2_1otgo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1007843163]
-position = Vector2(578, 124)
-shape = SubResource("RectangleShape2D_oxf17")
+[node name="PotionRow" type="HBoxContainer" parent="Combat_UI" unique_id=516619644]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 279.0
+offset_right = 938.0
+offset_bottom = 587.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=912074230]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1171924757]
-offset_left = 515.0
-offset_top = 410.0
-offset_right = 643.0
-offset_bottom = 454.0
+[node name="StackUI0" type="PanelContainer" parent="Combat_UI/PotionRow" unique_id=697708759]
+layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+script = ExtResource("7_qeyqd")
 
-[node name="PotionUI" parent="CanvasLayer/HBoxContainer" unique_id=1823905950 instance=ExtResource("1_w7k78")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Combat_UI/PotionRow/StackUI0" unique_id=2058596951]
 layout_mode = 2
 
-[node name="PotionUI2" parent="CanvasLayer/HBoxContainer" unique_id=589808255 instance=ExtResource("1_w7k78")]
+[node name="Potion_cards" type="VBoxContainer" parent="Combat_UI/PotionRow/StackUI0/VBoxContainer" unique_id=684244755]
 layout_mode = 2
 
-[node name="PotionUI3" parent="CanvasLayer/HBoxContainer" unique_id=385344110 instance=ExtResource("1_w7k78")]
+[node name="Action_buttons" type="HBoxContainer" parent="Combat_UI/PotionRow/StackUI0/VBoxContainer" unique_id=1297248781]
 layout_mode = 2
+
+[node name="Drink_button" type="Button" parent="Combat_UI/PotionRow/StackUI0/VBoxContainer/Action_buttons" unique_id=746469115]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Throw_button" type="Button" parent="Combat_UI/PotionRow/StackUI0/VBoxContainer/Action_buttons" unique_id=1801671179]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StackUI1" type="PanelContainer" parent="Combat_UI/PotionRow" unique_id=1017520130]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("7_qeyqd")
+stack_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Combat_UI/PotionRow/StackUI1" unique_id=1912749233]
+layout_mode = 2
+
+[node name="Potion_cards" type="VBoxContainer" parent="Combat_UI/PotionRow/StackUI1/VBoxContainer" unique_id=165284662]
+layout_mode = 2
+
+[node name="Action_buttons" type="HBoxContainer" parent="Combat_UI/PotionRow/StackUI1/VBoxContainer" unique_id=187228943]
+layout_mode = 2
+
+[node name="Drink_button" type="Button" parent="Combat_UI/PotionRow/StackUI1/VBoxContainer/Action_buttons" unique_id=1901771219]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Throw_button" type="Button" parent="Combat_UI/PotionRow/StackUI1/VBoxContainer/Action_buttons" unique_id=617151358]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StackUI2" type="PanelContainer" parent="Combat_UI/PotionRow" unique_id=1941438585]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("7_qeyqd")
+stack_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Combat_UI/PotionRow/StackUI2" unique_id=1522918917]
+layout_mode = 2
+
+[node name="Potion_cards" type="VBoxContainer" parent="Combat_UI/PotionRow/StackUI2/VBoxContainer" unique_id=1697902271]
+layout_mode = 2
+
+[node name="Action_buttons" type="HBoxContainer" parent="Combat_UI/PotionRow/StackUI2/VBoxContainer" unique_id=502582173]
+layout_mode = 2
+
+[node name="Drink_button" type="Button" parent="Combat_UI/PotionRow/StackUI2/VBoxContainer/Action_buttons" unique_id=1081997117]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Throw_button" type="Button" parent="Combat_UI/PotionRow/StackUI2/VBoxContainer/Action_buttons" unique_id=1934087318]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayerActor" type="Node" parent="." unique_id=1649066488]
+script = ExtResource("2_1ruyk")
+
+[node name="EnemyActor" type="Node" parent="." unique_id=724783587]
+script = ExtResource("3_1otgo")

@@ -1,21 +1,30 @@
 class_name PotionData
 extends Resource
 
-@export var PotionEffect: String
-@export var PotionDamage: int 
+@export var drink_effects: Array[PotionEffect] = []
+@export var throw_effects: Array[PotionEffect] = []
 @export var PotionType: String 
 @export var Sprite: Texture2D
 
-func execute(action: String) -> void:
+func execute(action: Potion_manager.PotionAction, user: CombatActor, target: CombatActor) -> void:
 	match action:
-		"drink":
-			Drink()
-		
-		"throw":
-			Throw()
-			
-func Drink():
-	pass
-	
-func Throw(): 
-	pass
+		Potion_manager.PotionAction.DRINK:
+			_apply_drink_effect(user)
+		Potion_manager.PotionAction.THROW:
+			_apply_throw_effect(target)
+
+func _apply_drink_effect(user: CombatActor) -> void:
+	for effect in drink_effects:
+		match effect.effect_type:
+			PotionEffect.EffectType.HEAL:
+				user.heal(effect.value)
+			PotionEffect.EffectType.BUFF:
+				user.apply_buff(effect.stat_target, effect.value)
+
+func _apply_throw_effect(target: CombatActor) -> void:
+	for effect in throw_effects:
+		match effect.effect_type:
+			PotionEffect.EffectType.DAMAGE:
+				target.take_damage(effect.value)
+			PotionEffect.EffectType.DEBUFF:
+				target.apply_buff(effect.stat_target, -effect.value)

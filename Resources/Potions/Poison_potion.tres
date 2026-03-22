@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PotionData" format=3 uid="uid://vjfvyqm85hym"]
+
+[ext_resource type="Script" uid="uid://ciorqmpe1smqk" path="res://Scripts/Potion_effect.gd" id="1_fkllf"]
+[ext_resource type="Script" uid="uid://dhvpsegrya5i8" path="res://Resources/Potion_Data.gd" id="2_limv2"]
+
+[sub_resource type="Resource" id="Resource_fkllf"]
+script = ExtResource("1_fkllf")
+value = 4
+metadata/_custom_type_script = "uid://ciorqmpe1smqk"
+
+[sub_resource type="Resource" id="Resource_limv2"]
+script = ExtResource("1_fkllf")
+value = 4
+metadata/_custom_type_script = "uid://ciorqmpe1smqk"
+
+[resource]
+script = ExtResource("2_limv2")
+drink_effects = Array[ExtResource("1_fkllf")]([SubResource("Resource_fkllf")])
+throw_effects = Array[ExtResource("1_fkllf")]([SubResource("Resource_limv2")])
+PotionType = "Poison"
+metadata/_custom_type_script = "uid://dhvpsegrya5i8"
