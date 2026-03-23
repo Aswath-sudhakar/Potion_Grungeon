@@ -2,11 +2,13 @@ class_name CraftingManager
 
 extends Node
 
+var recipies: Array = [] 
 
-@export var Recipies: Array[Recipies] = []
 
-func find_matching_recipies(slot_1: Item, slot_2:Item):
-	for recipie in Recipies:
+
+
+func find_matching_recipies(slot_1: Item, slot_2:Item) -> Recipies:
+	for recipie in recipies:
 		if recipie.matches(slot_1, slot_2):
 			return recipie
 	return null
@@ -19,7 +21,8 @@ func craft(slot_1:Item, slot_2:Item)-> PotionData:
 	if recipie == null:
 		print("recipie not found")
 		return 
-	print("crafted!", recipie.result.Potiontype)
-	return recipie.result
+	print("Recipe object: ", recipie)
+	print("Recipe properties: ", recipie.get_property_list())
+	return recipie.Result
 	
 	

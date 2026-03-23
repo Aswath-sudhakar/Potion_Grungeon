@@ -18,6 +18,6 @@ metadata/_custom_type_script = "uid://ciorqmpe1smqk"
 script = ExtResource("2_lcw6k")
 drink_effects = Array[ExtResource("2_1hj7j")]([SubResource("Resource_1hj7j")])
 throw_effects = Array[ExtResource("2_1hj7j")]([SubResource("Resource_7wngq")])
-PotionType = "fire"
+PotionType = "fire potion"
 Sprite = ExtResource("1_lcw6k")
 metadata/_custom_type_script = "uid://dhvpsegrya5i8"

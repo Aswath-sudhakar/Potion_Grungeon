@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Recipies" format=3 uid="uid://br1l2j5qxktr5"]
+
+[ext_resource type="Script" uid="uid://cv66d7mst2prh" path="res://Resources/Recipie.gd" id="1_2owh3"]
+[ext_resource type="Resource" uid="uid://cu8fvobxb7ohn" path="res://Resources/Potions/Fire_potion.tres" id="1_ahdtr"]
+[ext_resource type="Resource" uid="uid://b60ubfbob4ex2" path="res://Resources/Ingredients/Banana.tres" id="2_vyjs4"]
+[ext_resource type="Resource" uid="uid://dw58754y4b84o" path="res://Resources/Ingredients/Potato.tres" id="3_iob6u"]
+
+[resource]
+script = ExtResource("1_2owh3")
+ingredient_1 = ExtResource("2_vyjs4")
+ingredient_2 = ExtResource("3_iob6u")
+Result = ExtResource("1_ahdtr")
+Result_amount = 1
+metadata/_custom_type_script = "uid://cv66d7mst2prh"

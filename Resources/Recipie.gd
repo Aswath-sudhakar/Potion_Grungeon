@@ -1,4 +1,4 @@
-extends Node
+extends Resource
 class_name Recipies
 
 @export var ingredient_1: Item
@@ -13,4 +13,4 @@ func matches(Slot_1: Item, Slot_2: Item):
 	var match_a = Slot_1 == ingredient_1 and Slot_2 == ingredient_2
 	
 	var match_b = Slot_1 == ingredient_2 and Slot_2 == ingredient_1
-	return match_a and match_b
+	return match_a or match_b
