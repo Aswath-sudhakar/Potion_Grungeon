@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://4owtwxgdhm3a"]
+
+[ext_resource type="PackedScene" uid="uid://nux2jg77b60l" path="res://Scenes/slot.tscn" id="1_6yhhd"]
+
+[node name="CraftingScreen" type="Control" unique_id=1806607086]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CraftingSlots" type="HBoxContainer" parent="." unique_id=131163890]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -10.0
+offset_right = 22.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot" parent="CraftingSlots" unique_id=319273917 instance=ExtResource("1_6yhhd")]
+layout_mode = 2
+
+[node name="Slot2" parent="CraftingSlots" unique_id=1016346756 instance=ExtResource("1_6yhhd")]
+layout_mode = 2
+
+[node name="ResultSlot" parent="." unique_id=1281090228 instance=ExtResource("1_6yhhd")]
+layout_mode = 0
+offset_left = 647.0
+offset_top = 304.0
+offset_right = 687.0
+offset_bottom = 344.0
+
+[node name="CraftButton" type="Button" parent="." unique_id=1257347873]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 351.0
+offset_right = 652.0
+offset_bottom = 367.0
+
+[node name="ResultLabel" type="Label" parent="." unique_id=1790707013]
+layout_mode = 0
+offset_left = 588.0
+offset_top = 264.0
+offset_right = 647.0
+offset_bottom = 287.0
+text = "banana"
