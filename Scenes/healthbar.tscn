@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://35l2hgcvtle2" path="res://Scenes/health_bar.gd" id="1_k4tqu"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4tqu"]
+bg_color = Color(0.7019608, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1v5t1"]
+bg_color = Color(0.10275074, 0.45786196, 3.85046e-07, 1)
+
 [node name="Healthbar" type="VBoxContainer" unique_id=1250862296]
 offset_right = 199.0
 offset_bottom = 133.0
@@ -9,6 +15,8 @@ script = ExtResource("1_k4tqu")
 
 [node name="Health_Bar" type="ProgressBar" parent="." unique_id=1678215828]
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_k4tqu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1v5t1")
 
 [node name="NameLabel" type="Label" parent="." unique_id=2011112115]
 layout_mode = 2

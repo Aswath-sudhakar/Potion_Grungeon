@@ -10,9 +10,9 @@
 [ext_resource type="Resource" uid="uid://nf6ubl38gf5" path="res://Resources/Potions/Lightning_potion.tres" id="5_upb72"]
 [ext_resource type="Resource" uid="uid://vjfvyqm85hym" path="res://Resources/Potions/Poison_potion.tres" id="6_k7mbx"]
 [ext_resource type="Script" uid="uid://c7jj6uqsqxbwq" path="res://Scenes/PotionStackUI.gd" id="7_qeyqd"]
-[ext_resource type="Texture2D" uid="uid://bsfdi53ax7sf5" path="res://0270-1545658584.png" id="10_upb72"]
+[ext_resource type="Texture2D" uid="uid://b5et1c44m4qwl" path="res://drawn_art/player_sprite_1.PNG" id="10_heh15"]
 [ext_resource type="PackedScene" uid="uid://bbkj1lwib6m71" path="res://Scenes/healthbar.tscn" id="11_heh15"]
-[ext_resource type="Texture2D" uid="uid://dlj04miipohcf" path="res://icon.svg" id="12_rssjf"]
+[ext_resource type="Texture2D" uid="uid://xm26aatoraxi" path="res://drawn_art/enemies/penguin_1.PNG" id="13_xkp4y"]
 
 [node name="Battle" type="Node" unique_id=1205009668]
 
@@ -25,20 +25,24 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1152.0
-offset_bottom = -647.0
+offset_right = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_1otgo")
 
 [node name="PotionRow" type="HBoxContainer" parent="Combat_UI" unique_id=516619644]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 407.0
-anchor_bottom = 584.0
-offset_left = 269.0
-offset_right = 947.0
-metadata/_edit_use_anchors_ = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -286.5
+offset_top = -247.0
+offset_right = 285.5
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="StackUI0" type="PanelContainer" parent="Combat_UI/PotionRow" unique_id=697708759]
 layout_mode = 2
@@ -116,11 +120,18 @@ size_flags_horizontal = 3
 text = "Throw!"
 
 [node name="EndTurnButton" type="Button" parent="Combat_UI" unique_id=83826244]
-layout_mode = 0
-offset_left = 549.0
-offset_top = 355.0
-offset_right = 654.0
-offset_bottom = 393.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = 21.0
+offset_right = 53.5
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "End Turn
 "
 
@@ -129,22 +140,27 @@ script = ExtResource("2_1ruyk")
 actor_name = "Player"
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerActor" unique_id=546111682]
-position = Vector2(195, 68)
-texture = ExtResource("10_upb72")
+position = Vector2(262, 160)
+scale = Vector2(0.13506787, 0.1327338)
+texture = ExtResource("10_heh15")
 
-[node name="PlayerHealthbar" parent="PlayerActor/Sprite2D" unique_id=1250862296 instance=ExtResource("11_heh15")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -241.0
-offset_top = -130.0
-offset_right = -27.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 8
+[node name="PlayerHealthbar" parent="PlayerActor" unique_id=1250862296 instance=ExtResource("11_heh15")]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 149.0
+offset_top = -66.5
+offset_right = 363.0
+offset_bottom = 66.5
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="PotionUseCount" type="Label" parent="PlayerActor" unique_id=1200610230]
+offset_left = 89.0
+offset_top = 261.0
+offset_right = 129.0
+offset_bottom = 284.0
+text = "3"
 
 [node name="EnemyActor" type="Node" parent="." unique_id=724783587]
 script = ExtResource("3_1otgo")
@@ -152,18 +168,19 @@ Weaknesses = Array[int]([0])
 actor_name = "Slime"
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyActor" unique_id=1690275529]
-position = Vector2(941, 164)
-texture = ExtResource("12_rssjf")
+position = Vector2(904, 164)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("13_xkp4y")
 
-[node name="EnemyHealthbar" parent="EnemyActor/Sprite2D" unique_id=1544117671 instance=ExtResource("11_heh15")]
+[node name="EnemyHealthbar" parent="EnemyActor" unique_id=1544117671 instance=ExtResource("11_heh15")]
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -231.0
-offset_top = 14.0
-offset_right = -17.0
-offset_bottom = 147.0
+offset_left = -352.0
+offset_top = -66.5
+offset_right = -138.0
+offset_bottom = 66.5
 grow_horizontal = 0
 grow_vertical = 2

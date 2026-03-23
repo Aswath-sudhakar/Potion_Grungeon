@@ -4,7 +4,8 @@ extends Node
 @onready var player: PlayerActor = $"../PlayerActor"
 @onready var enemy: EnemyActor = $"../EnemyActor"
 @onready var combat_ui: CombatUI = $"../Combat_UI"
-
+@onready var Turn_manager: TurnManager = TurnManager.new()
+@onready var potion_label = $"../PlayerActor/PotionUseCount"
 var potion_manager: Potion_manager
 var turn_manager: TurnManager
 
@@ -14,6 +15,8 @@ func _ready() -> void:
 	potion_manager = Potion_manager.new()
 	turn_manager = TurnManager.new()
 	add_child(turn_manager)
+	print("created turn_manager at: ", turn_manager.get_path())
+	await get_tree().process_frame
 	_deal_starting_potions()
 	# connect signals
 	turn_manager.turn_changed.connect(_on_turn_changed)
@@ -22,6 +25,8 @@ func _ready() -> void:
 	enemy.died.connect(_on_enemy_died)
 	combat_ui.setup(self)
 	turn_manager.start_combat()
+	turn_manager.potion_use_count = player.get_node("PotionUseCount")
+	print("potion label assigned: ", turn_manager.potion_use_count)
 
 func _deal_starting_potions() -> void:
 	if starting_potions.is_empty():
