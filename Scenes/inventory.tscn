@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://rjngt34ewrdt"]
+
+[ext_resource type="PackedScene" uid="uid://nux2jg77b60l" path="res://Scenes/slot.tscn" id="1_wdn4f"]
+[ext_resource type="Resource" uid="uid://b60ubfbob4ex2" path="res://Resources/Ingredients/Banana.tres" id="2_k5gp2"]
+
+[node name="Inventory" type="Control" unique_id=981174924]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=524473108]
+
+[node name="GridContainer" type="GridContainer" parent="UI" unique_id=443821452]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -32.0
+offset_right = 48.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="Slot" parent="UI/GridContainer" unique_id=319273917 instance=ExtResource("1_wdn4f")]
+layout_mode = 2
+item = ExtResource("2_k5gp2")
+Amount = 5
+
+[node name="Slot2" parent="UI/GridContainer" unique_id=1551890731 instance=ExtResource("1_wdn4f")]
+layout_mode = 2
+
+[node name="Slot3" parent="UI/GridContainer" unique_id=1266791345 instance=ExtResource("1_wdn4f")]
+layout_mode = 2
+
+[node name="Slot4" parent="UI/GridContainer" unique_id=1703067825 instance=ExtResource("1_wdn4f")]
+layout_mode = 2
+
+[node name="Slot5" parent="UI/GridContainer" unique_id=2068684635 instance=ExtResource("1_wdn4f")]
+layout_mode = 2
+
+[node name="Slot6" parent="UI/GridContainer" unique_id=1576885717 instance=ExtResource("1_wdn4f")]
+layout_mode = 2
+
+[node name="Slot7" parent="UI/GridContainer" unique_id=1469207453 instance=ExtResource("1_wdn4f")]
+layout_mode = 2
+
+[node name="Slot8" parent="UI/GridContainer" unique_id=1219670452 instance=ExtResource("1_wdn4f")]
+layout_mode = 2
+
+[node name="Slot9" parent="UI/GridContainer" unique_id=274602501 instance=ExtResource("1_wdn4f")]
+layout_mode = 2
+
+[node name="Slot10" parent="UI/GridContainer" unique_id=1491771428 instance=ExtResource("1_wdn4f")]
+layout_mode = 2
+
+[node name="Slot11" parent="UI/GridContainer" unique_id=1289003170 instance=ExtResource("1_wdn4f")]
+layout_mode = 2
+
+[node name="Slot12" parent="UI/GridContainer" unique_id=1664654431 instance=ExtResource("1_wdn4f")]
+layout_mode = 2
