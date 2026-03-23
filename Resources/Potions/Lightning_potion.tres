@@ -11,7 +11,8 @@ metadata/_custom_type_script = "uid://ciorqmpe1smqk"
 
 [sub_resource type="Resource" id="Resource_dg2nv"]
 script = ExtResource("2_fumtx")
-value = 2
+value = 20
+damage_type = 2
 metadata/_custom_type_script = "uid://ciorqmpe1smqk"
 
 [resource]
