@@ -16,9 +16,9 @@ const ICON = preload("uid://dlj04miipohcf")
 				icon.texture = null
 				amount.text = ""
 				return
-				
-			icon.texture = ICON
 			
+			icon.texture = ICON
+			icon.size = Vector2(20, 20)	
 @export var Amount : int = 0:
 	set(value):
 		Amount = value
@@ -52,6 +52,23 @@ func _drop_data(at_position, data):
 		data.source.Amount = temp_amount
 	
 func _get_drag_data(at_position):
+	
+	if item:
+		var preview_texture = TextureRect.new()
+		
+		preview_texture.texture = ICON
+		preview_texture.position = -Vector2(10,10)
+		preview_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		preview_texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		
+		
+		var preveiw = Control.new()
+		preveiw.add_child(preview_texture)
+		set_drag_preview(preveiw)
+		
+		preview_texture.call_deferred("set_size", Vector2(18,18))
+		
+		
 	var data = {
 		"item": item,
 		"amount": Amount,
