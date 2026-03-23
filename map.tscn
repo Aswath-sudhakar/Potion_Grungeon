@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ns3v1owbmfwl"]
+
+[ext_resource type="Script" uid="uid://bkv73r8q543ct" path="res://camera_2d.gd" id="1_c7s6e"]
+
+[node name="Node2D" type="Node2D" unique_id=686901163]
+
+[node name="Button" type="Button" parent="." unique_id=1318603846]
+offset_left = 558.0
+offset_top = 479.0
+offset_right = 631.50006
+offset_bottom = 554.00006
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1828106699]
+position = Vector2(576, 325)
+script = ExtResource("1_c7s6e")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=858278679]
+
+[node name="CraftButton" type="Button" parent="Camera2D/CanvasLayer" unique_id=1858505467]
+offset_left = 1058.0
+offset_top = 548.0
+offset_right = 1118.5001
+offset_bottom = 610.0
+text = "Craft"
