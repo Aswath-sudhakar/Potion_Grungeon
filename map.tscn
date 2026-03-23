@@ -10,6 +10,42 @@ offset_top = 479.0
 offset_right = 631.50006
 offset_bottom = 554.00006
 
+[node name="Button2" type="Button" parent="." unique_id=1046668428]
+offset_left = 381.0
+offset_top = 368.0
+offset_right = 454.50006
+offset_bottom = 443.00006
+
+[node name="Button3" type="Button" parent="." unique_id=1975048440]
+offset_left = 705.0
+offset_top = 318.0
+offset_right = 778.50006
+offset_bottom = 393.00006
+
+[node name="Button4" type="Button" parent="." unique_id=754481794]
+offset_left = 388.0
+offset_top = 188.0
+offset_right = 461.50006
+offset_bottom = 263.00006
+
+[node name="Button5" type="Button" parent="." unique_id=1011423507]
+offset_left = 778.49994
+offset_top = 159.99997
+offset_right = 852.0
+offset_bottom = 235.00003
+
+[node name="Button6" type="Button" parent="." unique_id=1201752134]
+offset_left = 564.0
+offset_top = 119.0
+offset_right = 637.50006
+offset_bottom = 194.00006
+
+[node name="Button7" type="Button" parent="." unique_id=315013555]
+offset_left = 564.0
+offset_top = -83.0
+offset_right = 637.50006
+offset_bottom = -7.999939
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1828106699]
 position = Vector2(576, 325)
 script = ExtResource("1_c7s6e")
