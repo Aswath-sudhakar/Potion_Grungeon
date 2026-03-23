@@ -28,10 +28,10 @@ func _on_craft_button_pressed() -> void:
 		return
 	var potion = crafting_manager.craft(slot.item, slot_2.item)
 	# clear ingredient slots
-	slot.item = null
-	slot.Amount = 0
-	slot_2.item = null
-	slot_2.Amount = 0
+	
+	slot.Amount -= 1
+	
+	slot_2.Amount -= 1
 	# show result
 	result_label.text = "Crafted: " + potion.PotionType	
 	# add potion to potion inventory here

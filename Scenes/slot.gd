@@ -1,8 +1,9 @@
 extends Panel
 @onready var icon: TextureRect = $Icon
 @onready var amount: Label = $Amount
-const ICON = preload("uid://dlj04miipohcf")
 
+var dragged_item: Item = null
+var dragged_amount: int = 0
 
 
 @export var item : Item = null: 
@@ -63,14 +64,21 @@ func _drop_data(at_position, data):
 		data.source.Amount = temp_amount
 	
 func _get_drag_data(at_position):
+	if not item:
+		return null
+		
+	dragged_item = item
+	dragged_amount = Amount
 	
 	if item:
 		var preview_texture = TextureRect.new()
+		
 		preview_texture.texture = item.Icon
 		preview_texture.position = -Vector2(10,10)
 		preview_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		preview_texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		var preveiw = Control.new()
+		
 		preveiw.add_child(preview_texture)
 		set_drag_preview(preveiw)
 		
@@ -86,5 +94,11 @@ func _get_drag_data(at_position):
 	item = null
 	Amount = 0
 	return data
-
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_DRAG_END:
+		if not is_drag_successful() and dragged_item != null:
+			item = dragged_item
+			Amount = dragged_amount
+		dragged_item = null
+		dragged_amount = 0
 				
