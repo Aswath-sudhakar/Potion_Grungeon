@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PotionData" format=3 uid="uid://cu8fvobxb7ohn"]
+
+[ext_resource type="Texture2D" uid="uid://dlj04miipohcf" path="res://icon.svg" id="1_lcw6k"]
+[ext_resource type="Script" uid="uid://ciorqmpe1smqk" path="res://Resources/Potion_effect.gd" id="2_1hj7j"]
+[ext_resource type="Script" uid="uid://dhvpsegrya5i8" path="res://Resources/Potion_Data.gd" id="2_lcw6k"]
+
+[sub_resource type="Resource" id="Resource_1hj7j"]
+script = ExtResource("2_1hj7j")
+value = 10
+metadata/_custom_type_script = "uid://ciorqmpe1smqk"
+
+[sub_resource type="Resource" id="Resource_7wngq"]
+script = ExtResource("2_1hj7j")
+value = 30
+metadata/_custom_type_script = "uid://ciorqmpe1smqk"
+
+[resource]
+script = ExtResource("2_lcw6k")
+drink_effects = Array[ExtResource("2_1hj7j")]([SubResource("Resource_1hj7j")])
+throw_effects = Array[ExtResource("2_1hj7j")]([SubResource("Resource_7wngq")])
+PotionType = "fire"
+Sprite = ExtResource("1_lcw6k")
+metadata/_custom_type_script = "uid://dhvpsegrya5i8"

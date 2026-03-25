@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://gnn6lbehpqrf"]
+
+[ext_resource type="Script" uid="uid://x0nqatywu782" path="res://potion_card.gd" id="1_tjird"]
+
+[node name="PotionCard" type="PanelContainer" unique_id=1075817978]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_tjird")
+
+[node name="Name" type="Label" parent="." unique_id=1403869646]
+layout_mode = 2
