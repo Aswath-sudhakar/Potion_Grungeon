@@ -4,7 +4,8 @@ extends CombatActor
 @export var attack: int = 10
 @export var Weaknesses: Array[int] = []
 @export var Resistances: Array[int] = []
-var next_attack: int  # telegraphed damage value
+@export var enemy_loot: LootPool
+var next_attack: int  
 
 signal intent_changed(damage: int)
 
@@ -13,7 +14,6 @@ func _ready() -> void:
 	generate_intent()
 
 func generate_intent() -> void:
-	# for now just use attack stat, later you can randomize
 	next_attack = attack
 	intent_changed.emit(next_attack)
 
@@ -33,3 +33,9 @@ func get_damage_multiplier(damage_type: DamageType.Type) -> float:
 		print("Resistance Found!")
 		return 0.5
 	return 1.0
+	
+func get_drops() -> Array[Item]:
+	if enemy_loot == null:
+		return []
+	return enemy_loot.roll_drops()
+		
