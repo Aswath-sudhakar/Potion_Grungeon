@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://c7jj6uqsqxbwq" path="res://Scenes/PotionStackUI.gd" id="7_qeyqd"]
 [ext_resource type="Texture2D" uid="uid://b5et1c44m4qwl" path="res://drawn_art/player_sprite_1.PNG" id="10_heh15"]
 [ext_resource type="PackedScene" uid="uid://bbkj1lwib6m71" path="res://Scenes/healthbar.tscn" id="11_heh15"]
+[ext_resource type="Resource" uid="uid://pmsbh64b43pl" path="res://Resources/peng-drops.tres" id="13_vd41i"]
 [ext_resource type="Texture2D" uid="uid://xm26aatoraxi" path="res://drawn_art/enemies/penguin_1.PNG" id="13_xkp4y"]
 
 [node name="Battle" type="Node" unique_id=1205009668]
@@ -165,6 +166,7 @@ text = "3"
 [node name="EnemyActor" type="Node" parent="." unique_id=724783587]
 script = ExtResource("3_1otgo")
 Weaknesses = Array[int]([0])
+enemy_loot = ExtResource("13_vd41i")
 actor_name = "Slime"
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyActor" unique_id=1690275529]

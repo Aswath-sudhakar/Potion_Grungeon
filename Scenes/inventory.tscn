@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://rjngt34ewrdt"]
 
 [ext_resource type="PackedScene" uid="uid://nux2jg77b60l" path="res://Scenes/slot.tscn" id="1_wdn4f"]
-[ext_resource type="Resource" uid="uid://b60ubfbob4ex2" path="res://Resources/Ingredients/Banana.tres" id="2_k5gp2"]
-[ext_resource type="Resource" uid="uid://dw58754y4b84o" path="res://Resources/Ingredients/Potato.tres" id="3_yxepq"]
 
 [node name="Inventory" type="Control" unique_id=981174924]
 layout_mode = 3
@@ -32,29 +30,21 @@ columns = 6
 z_index = -1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-item = ExtResource("2_k5gp2")
-Amount = 5
 
 [node name="Slot2" parent="UI/GridContainer" unique_id=1551890731 instance=ExtResource("1_wdn4f")]
 z_index = -1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-item = ExtResource("3_yxepq")
-Amount = 5
 
 [node name="Slot3" parent="UI/GridContainer" unique_id=1266791345 instance=ExtResource("1_wdn4f")]
 z_index = -1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-item = ExtResource("2_k5gp2")
-Amount = 1
 
 [node name="Slot4" parent="UI/GridContainer" unique_id=1703067825 instance=ExtResource("1_wdn4f")]
 z_index = -1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-item = ExtResource("3_yxepq")
-Amount = 1
 
 [node name="Slot5" parent="UI/GridContainer" unique_id=2068684635 instance=ExtResource("1_wdn4f")]
 z_index = -1

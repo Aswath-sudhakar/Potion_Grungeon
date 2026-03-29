@@ -10,6 +10,7 @@ extends Control
 @onready var result_label: Label = $ResultLabel
 
 var crafting_manager: CraftingManager
+var inventory_manager: Inventory_manager
 
 func _ready() -> void:
 	print("CraftingScreen ready!")
@@ -17,6 +18,15 @@ func _ready() -> void:
 	crafting_manager = CraftingManager.new()
 	crafting_manager.recipies = _load_recipies()
 	craft_button.pressed.connect(_on_craft_button_pressed)
+	load_pending_drops()
+
+func setup(p_inventory_manager: Inventory_manager, drops: Array):
+	inventory_manager = p_inventory_manager
+	
+	var inventory_node = $Inventory
+	
+	var inventory_slots = inventory_node.get_children()
+	inventory_manager.setup(inventory_slots)
 
 func _on_craft_button_pressed() -> void:
 	print("banana")
@@ -49,3 +59,34 @@ func _load_recipies() -> Array[Recipies]:
 					recipies.append(recipe)
 			file = dir.get_next()
 	return recipies
+	
+func load_pending_drops() -> void:
+	print("Checking for pending drops...")
+	print("File exists: ", FileAccess.file_exists("user://pending_drops.tres"))
+	print("User dir: ", OS.get_user_data_dir())
+	
+	if not FileAccess.file_exists("user://pending_drops.tres"):
+		print("no pend drops found")
+		
+	var drop_data = ResourceLoader.load("user://pending_drops.tres")
+	if drop_data == null:
+		print("Failed to load drop data")
+		return
+	print("Drop data loaded, drops: ", drop_data.drops.size())
+	var inv_slots = $Inventory/UI/GridContainer.get_children()
+	print("Inventory slots found: ", inv_slots.size())
+	for drop in drop_data.drops:
+		print("Adding drop: ", drop)
+		_add_item_to_inventory(drop, inv_slots)
+	
+	DirAccess.remove_absolute("user://pending_drops.tres")
+	
+func _add_item_to_inventory(new_item: Item, slots: Array) -> void:
+	for slot in slots:
+		if slot.item == new_item:
+			slot.receive_item(new_item, slot.Amount + 1)
+			return
+	for slot in slots:
+		if slot.item == null:
+			slot.receive_item(new_item, 1)
+			return

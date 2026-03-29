@@ -3,7 +3,9 @@ class_name CraftingManager
 extends Node
 
 var recipies: Array = [] 
-
+var inventory_manager: Inventory_manager
+var pending_drops: Array = []
+@onready var enemy_actor: EnemyActor = $EnemyActor
 
 
 
@@ -25,4 +27,5 @@ func craft(slot_1:Item, slot_2:Item)-> PotionData:
 	print("Recipe properties: ", recipie.get_property_list())
 	return recipie.Result
 	
+
 	

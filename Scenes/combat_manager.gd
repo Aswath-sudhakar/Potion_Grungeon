@@ -8,6 +8,9 @@ extends Node
 @onready var potion_label = $"../PlayerActor/PotionUseCount"
 var potion_manager: Potion_manager
 var turn_manager: TurnManager
+var inventory_manager: Inventory_manager
+var pending_drops: Array = []
+@onready var enemy_actor: EnemyActor = $EnemyActor
 
 @export var starting_potions: Array[PotionData] = []
 
@@ -27,6 +30,9 @@ func _ready() -> void:
 	turn_manager.start_combat()
 	turn_manager.potion_use_count = player.get_node("PotionUseCount")
 	print("potion label assigned: ", turn_manager.potion_use_count)
+	inventory_manager = Inventory_manager.new()
+	add_child(inventory_manager)
+	enemy.died.connect(_on_enemy_died)
 
 func _deal_starting_potions() -> void:
 	if starting_potions.is_empty():
@@ -72,10 +78,22 @@ func _on_turn_changed(new_state: TurnManager.TurnState) -> void:
 	combat_ui.on_turn_changed(new_state)
 
 func _on_combat_ended(player_won: bool) -> void:
-	print("Combat ended! Player won: ", player_won)
+	if player_won:
+		open_crafting_scene()
 
 func _on_player_died() -> void:
 	turn_manager.check_combat_end(player, enemy)
 
 func _on_enemy_died() -> void:
-	turn_manager.check_combat_end(player, enemy)
+	pending_drops = enemy.get_drops()
+	print("enemy dropped", pending_drops.size(), "items")
+	Turn_manager.check_combat_end(player, enemy)
+	
+func open_crafting_scene() -> void:
+	var drop_data_instance = DropData.new()
+	drop_data_instance.drops = pending_drops
+	print("Saving ", pending_drops.size(), " drops to file")
+	var error = ResourceSaver.save(drop_data_instance, "user://pending_drops.tres")
+	print("Save result: ", error)
+	ResourceSaver.save(drop_data_instance, "user://pending_drops.tres")
+	get_tree().change_scene_to_packed(preload("uid://bgyafitn0pjn1"))

@@ -22,4 +22,6 @@ func add_item(item: Item, drop_amount: int=1) ->bool:
 			return true
 	return false
 	
-	pass
+func add_drops(drops: Array) -> void:
+	for drop in drops:
+		add_item(drop)
