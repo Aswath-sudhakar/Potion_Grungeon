@@ -18,14 +18,14 @@ func find_matching_recipies(slot_1: Item, slot_2:Item) -> Recipies:
 func can_craft(slot_1: Item, slot_2: Item) -> bool:
 	return find_matching_recipies(slot_1, slot_2) != null
 	
-func craft(slot_1:Item, slot_2:Item)-> PotionData:
+func craft(slot_1:Item, slot_2:Item)-> Item:
 	var recipie = find_matching_recipies(slot_1,slot_2)
 	if recipie == null:
 		print("recipie not found")
-		return 
-	print("Recipe object: ", recipie)
-	print("Recipe properties: ", recipie.get_property_list())
-	return recipie.Result
+		return null
+	var result = recipie.result_item
+	GameState.inventory.append({"item": result, "amount": 1})
+	return result
 	
 
 	

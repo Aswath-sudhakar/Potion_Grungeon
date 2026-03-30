@@ -1,2 +1,2 @@
-class_name PlayerActor
+class_name Player_Actor
 extends CombatActor

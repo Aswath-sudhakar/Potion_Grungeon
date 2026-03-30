@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://nux2jg77b60l" path="res://Scenes/slot.tscn" id="1_6yhhd"]
 [ext_resource type="Script" uid="uid://f26odh8ipqtk" path="res://Scripts/Crafting_screen.gd" id="1_pvn6g"]
+[ext_resource type="PackedScene" uid="uid://bm35b3jxcipgb" path="res://Scenes/potion_stacks.tscn" id="4_c6pnj"]
 [ext_resource type="PackedScene" uid="uid://rjngt34ewrdt" path="res://Scenes/inventory.tscn" id="4_cnx6o"]
 
 [node name="CraftingScreen" type="Control" unique_id=1806607086]
@@ -41,12 +42,10 @@ grow_vertical = 2
 
 [node name="Slot2" parent="CraftingSlots" unique_id=1016346756 instance=ExtResource("1_6yhhd")]
 z_index = 1
-custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 
 [node name="Slot" parent="CraftingSlots" unique_id=319273917 instance=ExtResource("1_6yhhd")]
 z_index = 1
-custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 
 [node name="ResultLabel" type="Label" parent="." unique_id=1790707013]
@@ -71,3 +70,22 @@ offset_left = 354.0
 offset_top = 151.0
 offset_right = 394.0
 offset_bottom = 191.0
+
+[node name="PotionStacks" parent="." unique_id=1315817940 instance=ExtResource("4_c6pnj")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.096
+offset_left = 499.0
+offset_top = -62.784
+offset_right = -82.0
+offset_bottom = -392.0
+
+[node name="StartCombat" type="Button" parent="." unique_id=1221707147]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 407.0
+offset_right = 41.0
+offset_bottom = 438.0
+text = "Start_combat"
+
+[connection signal="pressed" from="StartCombat" to="." method="_on_start_combat_pressed"]

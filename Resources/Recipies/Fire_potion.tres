@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://cu8fvobxb7ohn" path="res://Resources/Potions/Fire_potion.tres" id="1_ahdtr"]
 [ext_resource type="Resource" uid="uid://b60ubfbob4ex2" path="res://Resources/Ingredients/Banana.tres" id="2_vyjs4"]
 [ext_resource type="Resource" uid="uid://dw58754y4b84o" path="res://Resources/Ingredients/Potato.tres" id="3_iob6u"]
+[ext_resource type="Resource" uid="uid://ymuawinldt8y" path="res://Resources/Potion_items/FirePotion.tres" id="4_vyjs4"]
 
 [resource]
 script = ExtResource("1_2owh3")
@@ -11,4 +12,5 @@ ingredient_1 = ExtResource("2_vyjs4")
 ingredient_2 = ExtResource("3_iob6u")
 Result = ExtResource("1_ahdtr")
 Result_amount = 1
+result_item = ExtResource("4_vyjs4")
 metadata/_custom_type_script = "uid://cv66d7mst2prh"

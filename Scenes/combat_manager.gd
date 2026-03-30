@@ -1,7 +1,8 @@
 class_name combat_manager
 extends Node
 
-@onready var player: PlayerActor = $"../PlayerActor"
+@onready var player: Player_Actor = $"../PlayerActor"
+
 @onready var enemy: EnemyActor = $"../EnemyActor"
 @onready var combat_ui: CombatUI = $"../Combat_UI"
 @onready var Turn_manager: TurnManager = TurnManager.new()
@@ -10,7 +11,7 @@ var potion_manager: Potion_manager
 var turn_manager: TurnManager
 var inventory_manager: Inventory_manager
 var pending_drops: Array = []
-@onready var enemy_actor: EnemyActor = $EnemyActor
+
 
 @export var starting_potions: Array[PotionData] = []
 
@@ -18,6 +19,7 @@ func _ready() -> void:
 	potion_manager = Potion_manager.new()
 	turn_manager = TurnManager.new()
 	add_child(turn_manager)
+	LoadStackData()
 	print("created turn_manager at: ", turn_manager.get_path())
 	await get_tree().process_frame
 	_deal_starting_potions()
@@ -30,9 +32,7 @@ func _ready() -> void:
 	turn_manager.start_combat()
 	turn_manager.potion_use_count = player.get_node("PotionUseCount")
 	print("potion label assigned: ", turn_manager.potion_use_count)
-	inventory_manager = Inventory_manager.new()
-	add_child(inventory_manager)
-	enemy.died.connect(_on_enemy_died)
+
 
 func _deal_starting_potions() -> void:
 	if starting_potions.is_empty():
@@ -86,14 +86,30 @@ func _on_player_died() -> void:
 
 func _on_enemy_died() -> void:
 	pending_drops = enemy.get_drops()
+	GameState.pending_drops = pending_drops
 	print("enemy dropped", pending_drops.size(), "items")
+	print("Loot pool: ", enemy.enemy_loot)
 	Turn_manager.check_combat_end(player, enemy)
 	
 func open_crafting_scene() -> void:
-	var drop_data_instance = DropData.new()
-	drop_data_instance.drops = pending_drops
-	print("Saving ", pending_drops.size(), " drops to file")
-	var error = ResourceSaver.save(drop_data_instance, "user://pending_drops.tres")
-	print("Save result: ", error)
-	ResourceSaver.save(drop_data_instance, "user://pending_drops.tres")
+
+	GameState.pending_drops = pending_drops
+	
+
+	
 	get_tree().change_scene_to_packed(preload("uid://bgyafitn0pjn1"))
+	
+func LoadStackData():
+	var game_save = GameSave.load_or_create()
+
+	for item in game_save.stack_0:
+		if item != null and item.potion_data != null:
+			potion_manager.stacks[0].add_potion(item.potion_data)
+	for item in game_save.stack_1:
+		if item != null and item.potion_data != null:
+			potion_manager.stacks[1].add_potion(item.potion_data)
+	for item in game_save.stack_2:
+		if item != null and item.potion_data != null:
+			potion_manager.stacks[2].add_potion(item.potion_data)
+
+	
