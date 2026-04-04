@@ -3,12 +3,7 @@
 [ext_resource type="Script" uid="uid://j0du0yqabp6h" path="res://Scenes/combat_manager.gd" id="1_w7k78"]
 [ext_resource type="Script" uid="uid://dwks5utkbt2nj" path="res://Scripts/combat_ui.gd" id="2_1otgo"]
 [ext_resource type="Script" uid="uid://c5j5liomrp17d" path="res://Scripts/Player.gd" id="2_1ruyk"]
-[ext_resource type="Script" uid="uid://dhvpsegrya5i8" path="res://Resources/Potion_Data.gd" id="2_lrv64"]
 [ext_resource type="Script" uid="uid://5dcdornnpsva" path="res://Scripts/Enemy_actor.gd" id="3_1otgo"]
-[ext_resource type="Resource" uid="uid://edi8wo8s5c4x" path="res://Resources/Potions/Ice_potion.tres" id="3_qeyqd"]
-[ext_resource type="Resource" uid="uid://cu8fvobxb7ohn" path="res://Resources/Potions/Fire_potion.tres" id="4_k7mbx"]
-[ext_resource type="Resource" uid="uid://nf6ubl38gf5" path="res://Resources/Potions/Lightning_potion.tres" id="5_upb72"]
-[ext_resource type="Resource" uid="uid://vjfvyqm85hym" path="res://Resources/Potions/Poison_potion.tres" id="6_k7mbx"]
 [ext_resource type="Script" uid="uid://c7jj6uqsqxbwq" path="res://Scenes/PotionStackUI.gd" id="7_qeyqd"]
 [ext_resource type="Texture2D" uid="uid://b5et1c44m4qwl" path="res://drawn_art/player_sprite_1.PNG" id="10_heh15"]
 [ext_resource type="PackedScene" uid="uid://bbkj1lwib6m71" path="res://Scenes/healthbar.tscn" id="11_heh15"]
@@ -19,7 +14,6 @@
 
 [node name="CombatManager" type="Node" parent="." unique_id=1206555097]
 script = ExtResource("1_w7k78")
-starting_potions = Array[ExtResource("2_lrv64")]([ExtResource("3_qeyqd"), ExtResource("4_k7mbx"), ExtResource("5_upb72"), ExtResource("6_k7mbx")])
 
 [node name="Combat_UI" type="Control" parent="." unique_id=2009373637]
 layout_mode = 3

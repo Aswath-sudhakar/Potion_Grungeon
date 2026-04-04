@@ -11,7 +11,7 @@ var potion_manager: Potion_manager
 var turn_manager: TurnManager
 var inventory_manager: Inventory_manager
 var pending_drops: Array = []
-
+var stack_items: Array = []
 
 @export var starting_potions: Array[PotionData] = []
 
@@ -22,7 +22,7 @@ func _ready() -> void:
 	LoadStackData()
 	print("created turn_manager at: ", turn_manager.get_path())
 	await get_tree().process_frame
-	_deal_starting_potions()
+	
 	# connect signals
 	turn_manager.turn_changed.connect(_on_turn_changed)
 	turn_manager.combat_ended.connect(_on_combat_ended)
@@ -32,6 +32,7 @@ func _ready() -> void:
 	turn_manager.start_combat()
 	turn_manager.potion_use_count = player.get_node("PotionUseCount")
 	print("potion label assigned: ", turn_manager.potion_use_count)
+	
 
 
 func _deal_starting_potions() -> void:
@@ -52,6 +53,7 @@ func use_potion(stack_index: int, action: Potion_manager.PotionAction) -> void:
 	stack.use_top(action, player, enemy)
 	print("enemy status effects after potion", enemy.Status_effects.size())
 	turn_manager.on_potion_used()
+	_sync_stacks_to_save()
 	if not turn_manager.check_combat_end(player, enemy):
 		combat_ui.refresh_all()
 
@@ -99,17 +101,39 @@ func open_crafting_scene() -> void:
 	
 	get_tree().change_scene_to_packed(preload("uid://bgyafitn0pjn1"))
 	
-func LoadStackData():
+func LoadStackData() -> void:
 	var game_save = GameSave.load_or_create()
-
+	stack_items = []
 	for item in game_save.stack_0:
 		if item != null and item.potion_data != null:
 			potion_manager.stacks[0].add_potion(item.potion_data)
+			stack_items.append({"stack": 0, "item": item})
 	for item in game_save.stack_1:
 		if item != null and item.potion_data != null:
 			potion_manager.stacks[1].add_potion(item.potion_data)
+			stack_items.append({"stack": 1, "item": item})
 	for item in game_save.stack_2:
 		if item != null and item.potion_data != null:
 			potion_manager.stacks[2].add_potion(item.potion_data)
+			stack_items.append({"stack": 2, "item": item})
+
+func _sync_stacks_to_save() -> void:
+	var game_save = GameSave.load_or_create()
+	game_save.stack_0.clear()
+	game_save.stack_1.clear()
+	game_save.stack_2.clear()
+	for potion in potion_manager.stacks[0].potions:
+		var matching = stack_items.filter(func(e): return e.item.potion_data == potion and e.stack == 0)
+		if not matching.is_empty():
+			game_save.stack_0.append(matching[0].item)
+	for potion in potion_manager.stacks[1].potions:
+		var matching = stack_items.filter(func(e): return e.item.potion_data == potion and e.stack == 1)
+		if not matching.is_empty():
+			game_save.stack_1.append(matching[0].item)
+	for potion in potion_manager.stacks[2].potions:
+		var matching = stack_items.filter(func(e): return e.item.potion_data == potion and e.stack == 2)
+		if not matching.is_empty():
+			game_save.stack_2.append(matching[0].item)
+	game_save.save()
 
 	
