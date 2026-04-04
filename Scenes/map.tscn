@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://1w2kkoorn7q8"]
+[gd_scene format=3 uid="uid://ns3v1owbmfwl"]
 
-[ext_resource type="Script" path="res://Scripts/button.gd" id="1_w7jjh"]
-[ext_resource type="Script" path="res://Scripts/button_2.gd" id="2_6q3n4"]
-[ext_resource type="Script" path="res://Scripts/button_3.gd" id="3_4c2oa"]
-[ext_resource type="Script" path="res://Scripts/button_4.gd" id="4_olcgw"]
-[ext_resource type="Script" path="res://Scripts/button_5.gd" id="5_dlo4w"]
-[ext_resource type="Script" path="res://Scripts/button_6.gd" id="6_q6lx1"]
-[ext_resource type="Script" path="res://Scripts/button_7.gd" id="7_5qtum"]
+[ext_resource type="Script" uid="uid://xhvrdqw3a7wx" path="res://Scripts/button.gd" id="1_w7jjh"]
+[ext_resource type="Script" uid="uid://c3rerv4ej527l" path="res://Scripts/button_2.gd" id="2_6q3n4"]
+[ext_resource type="Script" uid="uid://ckyptavkngxsv" path="res://Scripts/button_3.gd" id="3_4c2oa"]
+[ext_resource type="Script" uid="uid://cu4ujn3bxugdw" path="res://Scripts/button_4.gd" id="4_olcgw"]
+[ext_resource type="Script" uid="uid://bba3u8ylvcl5n" path="res://Scripts/button_5.gd" id="5_dlo4w"]
+[ext_resource type="Script" uid="uid://c3vrdq4g3tuhg" path="res://Scripts/button_6.gd" id="6_q6lx1"]
+[ext_resource type="Script" uid="uid://b5q7dquijcwrr" path="res://Scripts/button_7.gd" id="7_5qtum"]
 
 [node name="Node2D" type="Node2D" unique_id=686901163]
 

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dopm7ns4kbrqq"]
+
+[ext_resource type="Script" uid="uid://ddakqjq1pgdcp" path="res://Scripts/play_button.gd" id="1_tt5f1"]
+
+[node name="Node2D" type="Node2D" unique_id=855699779]
+
+[node name="PlayButton" type="Button" parent="." unique_id=160417664]
+offset_left = 310.0
+offset_top = 225.0
+offset_right = 837.0
+offset_bottom = 278.0
+text = "Play"
+script = ExtResource("1_tt5f1")
+
+[node name="CreditsButton" type="Button" parent="." unique_id=937597810]
+offset_left = 310.0
+offset_top = 316.0
+offset_right = 837.0
+offset_bottom = 369.0
+text = "Credits"

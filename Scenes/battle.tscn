@@ -151,16 +151,17 @@ grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="PotionUseCount" type="Label" parent="PlayerActor" unique_id=1200610230]
-offset_left = 89.0
-offset_top = 261.0
-offset_right = 129.0
-offset_bottom = 284.0
+offset_left = 110.0
+offset_top = 259.0
+offset_right = 150.0
+offset_bottom = 282.0
 text = "3"
 
 [node name="EnemyActor" type="Node" parent="." unique_id=724783587]
 script = ExtResource("3_1otgo")
 Weaknesses = Array[int]([0])
 enemy_loot = ExtResource("13_vd41i")
+Resistances = Array[int]([1])
 actor_name = "Slime"
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyActor" unique_id=1690275529]
