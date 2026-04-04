@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://1w2kkoorn7q8"]
+
+[ext_resource type="Script" path="res://Scripts/button.gd" id="1_w7jjh"]
+[ext_resource type="Script" path="res://Scripts/button_2.gd" id="2_6q3n4"]
+[ext_resource type="Script" path="res://Scripts/button_3.gd" id="3_4c2oa"]
+[ext_resource type="Script" path="res://Scripts/button_4.gd" id="4_olcgw"]
+[ext_resource type="Script" path="res://Scripts/button_5.gd" id="5_dlo4w"]
+[ext_resource type="Script" path="res://Scripts/button_6.gd" id="6_q6lx1"]
+[ext_resource type="Script" path="res://Scripts/button_7.gd" id="7_5qtum"]
+
+[node name="Node2D" type="Node2D" unique_id=686901163]
+
+[node name="Button" type="Button" parent="." unique_id=1318603846]
+offset_left = 558.0
+offset_top = 479.0
+offset_right = 631.50006
+offset_bottom = 554.00006
+script = ExtResource("1_w7jjh")
+
+[node name="Button2" type="Button" parent="." unique_id=1046668428]
+offset_left = 468.0
+offset_top = 356.0
+offset_right = 541.50006
+offset_bottom = 431.00006
+script = ExtResource("2_6q3n4")
+
+[node name="Button3" type="Button" parent="." unique_id=1975048440]
+offset_left = 671.0
+offset_top = 372.0
+offset_right = 744.50006
+offset_bottom = 447.00006
+script = ExtResource("3_4c2oa")
+
+[node name="Button4" type="Button" parent="." unique_id=754481794]
+offset_left = 388.0
+offset_top = 188.0
+offset_right = 461.50006
+offset_bottom = 263.00006
+script = ExtResource("4_olcgw")
+
+[node name="Button5" type="Button" parent="." unique_id=1011423507]
+offset_left = 756.0
+offset_top = 226.0
+offset_right = 829.50006
+offset_bottom = 301.00006
+script = ExtResource("5_dlo4w")
+
+[node name="Button6" type="Button" parent="." unique_id=1201752134]
+offset_left = 614.0
+offset_top = 217.0
+offset_right = 687.50006
+offset_bottom = 292.00006
+script = ExtResource("6_q6lx1")
+
+[node name="Button7" type="Button" parent="." unique_id=315013555]
+offset_left = 557.0
+offset_top = 40.0
+offset_right = 630.50006
+offset_bottom = 115.00006
+script = ExtResource("7_5qtum")
+
+[node name="CraftButton" type="Button" parent="." unique_id=1858505467]
+offset_left = 1058.0
+offset_top = 548.0
+offset_right = 1118.5001
+offset_bottom = 610.0
+text = "Craft"
