@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://b60ubfbob4ex2"]
 
-[ext_resource type="Texture2D" uid="uid://dlj04miipohcf" path="res://icon.svg" id="1_ijm7e"]
+[ext_resource type="Texture2D" uid="uid://cylra64rq01tk" path="res://drawn_art/materials/1000000041.png" id="1_ijm7e"]
 [ext_resource type="Script" uid="uid://uwi3dcefevuh" path="res://Resources/Item.gd" id="1_o8t7b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgxng"]
+atlas = ExtResource("1_ijm7e")
+region = Rect2(0, 398.40656, 386.76172, 378.7918)
 
 [resource]
 script = ExtResource("1_o8t7b")
-title = "Banana"
-Icon = ExtResource("1_ijm7e")
+title = "Fire_berry"
+Icon = SubResource("AtlasTexture_mgxng")
 metadata/_custom_type_script = "uid://uwi3dcefevuh"

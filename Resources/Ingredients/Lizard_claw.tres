@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bgfhgeuucaqjm"]
+
+[ext_resource type="Script" uid="uid://uwi3dcefevuh" path="res://Resources/Item.gd" id="1_ii8ag"]
+[ext_resource type="Texture2D" uid="uid://cylra64rq01tk" path="res://drawn_art/materials/1000000041.png" id="1_mxc7a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfynl"]
+atlas = ExtResource("1_mxc7a")
+region = Rect2(1143.511, 1584.5203, 392.489, 450.1206)
+
+[resource]
+script = ExtResource("1_ii8ag")
+title = "Lizard Claw"
+Icon = SubResource("AtlasTexture_qfynl")
+metadata/_custom_type_script = "uid://uwi3dcefevuh"
