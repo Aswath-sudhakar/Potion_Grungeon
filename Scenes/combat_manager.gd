@@ -33,6 +33,7 @@ func _ready() -> void:
 	player.died.connect(_on_player_died)
 	enemy.died.connect(_on_enemy_died)
 	combat_ui.setup(self)
+	_load_player_hp()
 	turn_manager.start_combat()
 	turn_manager.potion_use_count = player.get_node("PotionUseCount")
 	print("potion label assigned: ", turn_manager.potion_use_count)
@@ -41,7 +42,7 @@ func _ready() -> void:
 
 func _deal_starting_potions() -> void:
 	if starting_potions.is_empty():
-		print("No starting potions assigned!")
+		
 		return
 	for i in starting_potions.size():
 		var stack_index = i % 3
@@ -49,13 +50,13 @@ func _deal_starting_potions() -> void:
 
 func use_potion(stack_index: int, action: Potion_manager.PotionAction) -> void:
 	if not turn_manager.can_use_potion():
-		print("Cannot use potion right now!")
+		
 		return
 	var stack = potion_manager.stacks[stack_index]
 	if not stack.can_use():
 		return
 	stack.use_top(action, player, enemy)
-	print("enemy status effects after potion", enemy.Status_effects.size())
+	
 	turn_manager.on_potion_used()
 	_sync_stacks_to_save()
 	if not turn_manager.check_combat_end(player, enemy):
@@ -93,12 +94,15 @@ func _on_player_died() -> void:
 func _on_enemy_died() -> void:
 	pending_drops = enemy.get_drops()
 	GameState.pending_drops = pending_drops
-	print("enemy dropped", pending_drops.size(), "items")
-	print("Loot pool: ", enemy.enemy_loot)
+
 	Turn_manager.check_combat_end(player, enemy)
 	
 func open_crafting_scene() -> void:
-
+	var game_save = GameSave.load_or_create()
+	print("Saving player HP: ", player.current_hp)
+	game_save.player_hp = player.current_hp
+	game_save.save()
+	print("Saved game_save player_hp: ", game_save.player_hp)
 	GameState.pending_drops = pending_drops
 	get_tree().change_scene_to_packed(preload("uid://bgyafitn0pjn1"))
 	
@@ -134,7 +138,7 @@ func _sync_stacks_to_save() -> void:
 	for potion in potion_manager.stacks[2].potions:
 		var matching = stack_items.filter(func(e): return e.item.potion_data == potion and e.stack == 2)
 		if not matching.is_empty():
-			game_save.stack_2.append(matching[0].item)
+			game_save.stack_2.append(matching[0].item)	
 	game_save.save()
 	
 func spawn_enemy():
@@ -147,6 +151,14 @@ func spawn_enemy():
 	enemy = enemy_scene.instantiate()
 	enemy_spawn_point.add_child(enemy)
 	enemy.died.connect(_on_enemy_died)
-	print("Spawned enemy: ", enemy.actor_name)
+	
 
+func _load_player_hp() -> void:
+	var game_save = GameSave.load_or_create()
+	print("Loaded player_hp from save: ", game_save.player_hp)
+	if game_save.player_hp == -1:
+		print("First combat, using max hp: ", player.max_hp)
+		return  
+	player.current_hp = game_save.player_hp
+	player.hp_changed.emit(player.current_hp, player.max_hp)
 	
