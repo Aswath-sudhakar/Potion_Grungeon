@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vjh735k2s8b2" path="res://Scenes/map.gd" id="1_6q3n4"]
 
-[node name="Node2D" type="Node2D" unique_id=686901163]
+[node name="Node2D2" type="Node2D" unique_id=686901163]
 script = ExtResource("1_6q3n4")
 
 [node name="Button" type="Button" parent="." unique_id=1318603846]

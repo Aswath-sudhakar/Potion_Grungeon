@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://f0t4own3rewe"]
+
+[ext_resource type="Texture2D" uid="uid://p8ssmw0ufidy" path="res://drawn_art/enemies/crystal_turtle_1.PNG" id="1_sy0ft"]
+[ext_resource type="Script" uid="uid://5dcdornnpsva" path="res://Scripts/Enemy_actor.gd" id="1_u7j4u"]
+[ext_resource type="PackedScene" uid="uid://bbkj1lwib6m71" path="res://Scenes/healthbar.tscn" id="2_u7j4u"]
+
+[node name="Node2D" type="Node2D" unique_id=244131624]
+script = ExtResource("1_u7j4u")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=210574745]
+position = Vector2(944.00006, 292)
+scale = Vector2(0.13625728, 0.16050808)
+texture = ExtResource("1_sy0ft")
+
+[node name="Healthbar" parent="." unique_id=1250862296 instance=ExtResource("2_u7j4u")]
+offset_left = 841.0
+offset_top = 382.0
+offset_right = 1040.0
+offset_bottom = 515.0
+metadata/_edit_use_anchors_ = true

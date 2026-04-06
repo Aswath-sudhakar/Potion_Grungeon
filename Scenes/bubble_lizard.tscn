@@ -1,3 +1,20 @@
 [gd_scene format=3 uid="uid://b8p3swhgutkdy"]
 
+[ext_resource type="Script" uid="uid://5dcdornnpsva" path="res://Scripts/Enemy_actor.gd" id="1_6bd71"]
+[ext_resource type="Texture2D" uid="uid://dnb6dg2n3e2cv" path="res://drawn_art/enemies/cotton_lizard_1.PNG" id="1_jcqab"]
+[ext_resource type="PackedScene" uid="uid://bbkj1lwib6m71" path="res://Scenes/healthbar.tscn" id="2_6bd71"]
+
 [node name="Node2D" type="Node2D" unique_id=2015166525]
+script = ExtResource("1_6bd71")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=33204636]
+position = Vector2(887.00006, 292)
+scale = Vector2(0.13625728, 0.16050808)
+texture = ExtResource("1_jcqab")
+
+[node name="Healthbar" parent="." unique_id=1250862296 instance=ExtResource("2_6bd71")]
+offset_left = 803.0
+offset_top = 386.0
+offset_right = 1002.0
+offset_bottom = 519.0
+metadata/_edit_use_anchors_ = true

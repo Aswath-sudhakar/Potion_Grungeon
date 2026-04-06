@@ -15,13 +15,13 @@ actor_name = "Electric Seal"
 max_hp = 125
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=494501683]
-position = Vector2(831, 161)
+position = Vector2(930.00006, 291)
 scale = Vector2(0.13625728, 0.16050808)
 texture = ExtResource("1_2u0dg")
 
 [node name="Healthbar" parent="." unique_id=1250862296 instance=ExtResource("2_e54hv")]
-offset_left = 731.0
-offset_top = 267.0
-offset_right = 930.0
-offset_bottom = 400.0
+offset_left = 831.0
+offset_top = 386.0
+offset_right = 1030.0
+offset_bottom = 519.0
 metadata/_edit_use_anchors_ = true

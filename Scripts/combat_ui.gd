@@ -2,7 +2,7 @@ class_name CombatUI
 extends Control
 
 var stack_uis: Array = []
-var Combat_manager: combat_manager
+var Combat_manager : combat_manager
 var selected_index: int = -1
 var end_turn_btn: Button
 var PlayerHealthbar: HealthBar

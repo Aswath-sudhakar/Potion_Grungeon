@@ -54,4 +54,6 @@ func _on_node_pressed(index: int) -> void:
 			game_save.available_nodes.append(connected)
 	game_save.current_map_node = index
 	game_save.save()
+	GameState.is_boss_fight = map_data[index].is_empty()
 	get_tree().change_scene_to_file("res://Scenes/battle.tscn")
+	

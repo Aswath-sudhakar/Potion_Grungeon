@@ -10,13 +10,13 @@ script = ExtResource("1_ooqdt")
 enemy_loot = ExtResource("2_mpit3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1171150526]
-position = Vector2(831, 161)
+position = Vector2(931.00006, 287)
 scale = Vector2(0.13625728, 0.16050808)
 texture = ExtResource("2_mii5x")
 
 [node name="Healthbar" parent="." unique_id=1250862296 instance=ExtResource("2_25rmn")]
-offset_left = 731.0
-offset_top = 267.0
-offset_right = 930.0
-offset_bottom = 400.0
+offset_left = 838.0
+offset_top = 382.0
+offset_right = 1037.0
+offset_bottom = 515.0
 metadata/_edit_use_anchors_ = true
