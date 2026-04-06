@@ -9,6 +9,8 @@ extends Node
 var potion_manager: Potion_manager
 var turn_manager: TurnManager
 
+signal combat_ended(player_won: bool)
+
 @export var starting_potions: Array[PotionData] = []
 
 func _ready() -> void:
@@ -73,6 +75,8 @@ func _on_turn_changed(new_state: TurnManager.TurnState) -> void:
 
 func _on_combat_ended(player_won: bool) -> void:
 	print("Combat ended! Player won: ", player_won)
+	if player_won:
+		combat_ended.emit(true)
 
 func _on_player_died() -> void:
 	turn_manager.check_combat_end(player, enemy)
