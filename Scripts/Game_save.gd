@@ -6,6 +6,7 @@ extends Resource
 @export var stack_1: Array = []
 @export var stack_2: Array = []
 @export var has_default_potions: bool = false
+@export var current_map_node: int = 0
 
 const SAVE_PATH = "user://game_save.tres"
 

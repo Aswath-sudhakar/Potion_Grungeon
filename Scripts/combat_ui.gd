@@ -16,9 +16,9 @@ func setup(p_combat_manager: combat_manager) -> void:
 		$PotionRow/StackUI2,
 	]
 	PlayerHealthbar = $"../PlayerActor/PlayerHealthbar"
-	EnemyHealthbar = $"../EnemyActor/EnemyHealthbar"
+	
 	PlayerHealthbar.setup(Combat_manager.player)
-	EnemyHealthbar.setup(Combat_manager.enemy)
+	
 	end_turn_btn = $EndTurnButton
 	end_turn_btn.pressed.connect(_on_end_turn_pressed)
 	for ui in stack_uis:

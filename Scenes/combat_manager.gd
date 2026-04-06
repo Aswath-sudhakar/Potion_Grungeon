@@ -2,11 +2,15 @@ class_name combat_manager
 extends Node
 
 @onready var player: Player_Actor = $"../PlayerActor"
-
+@export var encounter_pool: EncounterPool
 @onready var enemy: EnemyActor = $"../EnemyActor"
 @onready var combat_ui: CombatUI = $"../Combat_UI"
 @onready var Turn_manager: TurnManager = TurnManager.new()
 @onready var potion_label = $"../PlayerActor/PotionUseCount"
+@onready var enemy_spawn_point: Node = $"../EnemySpawnPoint"
+
+
+
 var potion_manager: Potion_manager
 var turn_manager: TurnManager
 var inventory_manager: Inventory_manager
@@ -22,8 +26,8 @@ func _ready() -> void:
 	LoadStackData()
 	print("created turn_manager at: ", turn_manager.get_path())
 	await get_tree().process_frame
+	spawn_enemy()
 	
-	# connect signals
 	turn_manager.turn_changed.connect(_on_turn_changed)
 	turn_manager.combat_ended.connect(_on_combat_ended)
 	player.died.connect(_on_player_died)
@@ -96,9 +100,6 @@ func _on_enemy_died() -> void:
 func open_crafting_scene() -> void:
 
 	GameState.pending_drops = pending_drops
-	
-
-	
 	get_tree().change_scene_to_packed(preload("uid://bgyafitn0pjn1"))
 	
 func LoadStackData() -> void:
@@ -135,5 +136,17 @@ func _sync_stacks_to_save() -> void:
 		if not matching.is_empty():
 			game_save.stack_2.append(matching[0].item)
 	game_save.save()
+	
+func spawn_enemy():
+	if encounter_pool == null:
+		return 
+		
+	var enemy_scene = encounter_pool.get_random_enemy()
+	if enemy_scene == null:
+		return
+	enemy = enemy_scene.instantiate()
+	enemy_spawn_point.add_child(enemy)
+	enemy.died.connect(_on_enemy_died)
+	print("Spawned enemy: ", enemy.actor_name)
 
 	

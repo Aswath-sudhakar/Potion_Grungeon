@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d0ohv2cwclrs7"]
+
+[ext_resource type="Script" uid="uid://5dcdornnpsva" path="res://Scripts/Enemy_actor.gd" id="1_ooqdt"]
+[ext_resource type="PackedScene" uid="uid://bbkj1lwib6m71" path="res://Scenes/healthbar.tscn" id="2_25rmn"]
+[ext_resource type="Texture2D" uid="uid://xm26aatoraxi" path="res://drawn_art/enemies/penguin_1.PNG" id="2_mii5x"]
+[ext_resource type="Resource" uid="uid://pmsbh64b43pl" path="res://Resources/Drops/peng-drops.tres" id="2_mpit3"]
+
+[node name="IcePenguin" type="Node2D" unique_id=1188349780]
+script = ExtResource("1_ooqdt")
+enemy_loot = ExtResource("2_mpit3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1171150526]
+position = Vector2(831, 161)
+scale = Vector2(0.13625728, 0.16050808)
+texture = ExtResource("2_mii5x")
+
+[node name="Healthbar" parent="." unique_id=1250862296 instance=ExtResource("2_25rmn")]
+offset_left = 731.0
+offset_top = 267.0
+offset_right = 930.0
+offset_bottom = 400.0
+metadata/_edit_use_anchors_ = true

@@ -2,7 +2,7 @@ extends Node
 
 var inventory: Array = []  # Array of {item: Item, amount: int}
 var pending_drops: Array = []
-
+var current_map_node: int = 0
 func save_inventory(slots: Array) -> void:
 	var game_save = GameSave.load_or_create()
 	game_save.ingredient_slots.clear()

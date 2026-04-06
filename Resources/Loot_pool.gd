@@ -8,7 +8,8 @@ func roll_drops() -> Array[Item]:
 	var drops: Array[Item] = []
 	for entry in LootTable:
 		if randf() <= entry.drop_chance:
-			drops.append(entry.item_dropped)
+			for i in entry.amount_dropped:
+				drops.append(entry.item_dropped)
 	return drops
 	
 	

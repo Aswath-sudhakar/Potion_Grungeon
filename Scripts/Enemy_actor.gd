@@ -1,5 +1,7 @@
 class_name EnemyActor
 extends CombatActor
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var Health_bar: HealthBar = $Healthbar
 
 @export var attack: int = 10
 @export var Weaknesses: Array[int] = []
@@ -12,6 +14,7 @@ signal intent_changed(damage: int)
 func _ready() -> void:
 	super._ready()
 	generate_intent()
+	Health_bar.setup(self)
 
 func generate_intent() -> void:
 	next_attack = attack

@@ -100,7 +100,7 @@ func _get_all_stack_slots() -> Array:
 
 func _on_start_combat_pressed() -> void:
 	_save_state()
-	get_tree().change_scene_to_file("res://Scenes/Battle.tscn")
+	get_tree().change_scene_to_file("res://Scenes/map.tscn")
 
 func _load_pending_drops() -> void:
 	if GameState.pending_drops.is_empty():

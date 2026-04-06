@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EncounterPool" format=3 uid="uid://c7mudv58joanb"]
+
+[ext_resource type="Script" uid="uid://c1ht4prjltx6p" path="res://Resources/EncounterPool.gd" id="1_ckk0v"]
+[ext_resource type="PackedScene" uid="uid://d0ohv2cwclrs7" path="res://Scenes/ice_penguins.tscn" id="1_nt2bv"]
+[ext_resource type="PackedScene" uid="uid://hmn14m3kpxl1" path="res://Scenes/electric_seal.tscn" id="2_jawn0"]
+
+[resource]
+script = ExtResource("1_ckk0v")
+possible_enemies = Array[PackedScene]([ExtResource("1_nt2bv"), ExtResource("2_jawn0")])
+metadata/_custom_type_script = "uid://c1ht4prjltx6p"
