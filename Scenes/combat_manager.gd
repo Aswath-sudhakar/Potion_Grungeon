@@ -24,6 +24,8 @@ var stack_items: Array = []
 @export var starting_potions: Array[PotionData] = []
 
 func _ready() -> void:
+
+	anim_setup()
 	animation_player.get_parent().get_node("ColorRect" ).color.a = 255
 	animation_player.play("Fade_in")
 	
@@ -35,7 +37,7 @@ func _ready() -> void:
 	print("created turn_manager at: ", turn_manager.get_path())
 	await get_tree().process_frame
 	spawn_enemy()
-	anim_setup()
+	
 	turn_manager.turn_changed.connect(_on_turn_changed)
 	turn_manager.combat_ended.connect(_on_combat_ended)
 	player.died.connect(_on_player_died)
@@ -50,6 +52,7 @@ func _ready() -> void:
 	
 	combat_anims.Slide_in_out_player_turn()
 	combat_anims.Potion_card_popup()
+	
 	await get_tree().create_timer(2).timeout
 	combat_anims.slide_out_player_turn()
 	combat_anims.mid_bar_vanish()
@@ -183,7 +186,5 @@ func _load_player_hp() -> void:
 	
 func anim_setup():
 	label.position.x = 1500
-	stack_ui_0.position.y = 800
-	stack_ui_1.position.y = 800
-	stack_ui_2.position.y = 800
-	pass
+
+	
