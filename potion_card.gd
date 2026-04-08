@@ -5,6 +5,7 @@ var name_label: Label
 var texture_rect: TextureRect 
 
 func setup(potion: PotionData, is_top: bool) -> void:
+	
 	if name_label == null:
 		name_label = $Name
 	if texture_rect == null:

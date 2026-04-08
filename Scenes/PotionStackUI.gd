@@ -42,8 +42,9 @@ func refresh(p_stack: Potion_Stack, p_combat_manager: combat_manager) -> void:
 		var card = preload("res://Scenes/potion_card.tscn").instantiate()
 		card.setup(potion, i == 0)
 		card_list.add_child(card)
-		card.position = Vector2(35, i * 20)
+		card.position = Vector2(35, i * 5)
 		card.z_index = stack.potions.size() - i
+	card_list.custom_minimum_size = Vector2(80, 120)
 	if not stack.can_use():
 		deselect()
 
