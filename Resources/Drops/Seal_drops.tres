@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LootPool" format=3 uid="uid://cm67pwvoak6qb"]
 
-[ext_resource type="Script" uid="uid://go3m7tj8oy2i" path="res://Resources/LootDrops.gd" id="1_78n1g"]
-[ext_resource type="Script" uid="uid://c4ajfu6m8am8d" path="res://Resources/Loot_pool.gd" id="2_5dcga"]
+[ext_resource type="Script" path="res://Resources/LootDrops.gd" id="1_78n1g"]
+[ext_resource type="Script" path="res://Resources/Loot_pool.gd" id="2_5dcga"]
 [ext_resource type="Resource" uid="uid://dw58754y4b84o" path="res://Resources/Ingredients/Potato.tres" id="2_cp0oq"]
 [ext_resource type="Resource" uid="uid://b60ubfbob4ex2" path="res://Resources/Ingredients/Banana.tres" id="3_vgpqd"]
 

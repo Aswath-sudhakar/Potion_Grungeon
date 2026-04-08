@@ -8,8 +8,12 @@ extends Node
 @onready var Turn_manager: TurnManager = TurnManager.new()
 @onready var potion_label = $"../PlayerActor/PotionUseCount"
 @onready var enemy_spawn_point: Node = $"../EnemySpawnPoint"
-
-
+@onready var animation_player: AnimationPlayer = get_node("Transition/AnimationPlayer")
+@onready var combat_anims: Combat_animations = $"../ColorRect"
+@onready var stack_ui_0: PotionStackUI = $"../Combat_UI/PotionRow/StackUI0"
+@onready var stack_ui_1: PotionStackUI = $"../Combat_UI/PotionRow/StackUI1"
+@onready var stack_ui_2: PotionStackUI = $"../Combat_UI/PotionRow/StackUI2"
+@onready var label: Label = $"../Label"
 
 var potion_manager: Potion_manager
 var turn_manager: TurnManager
@@ -20,6 +24,10 @@ var stack_items: Array = []
 @export var starting_potions: Array[PotionData] = []
 
 func _ready() -> void:
+	animation_player.get_parent().get_node("ColorRect" ).color.a = 255
+	animation_player.play("Fade_in")
+	
+	
 	potion_manager = Potion_manager.new()
 	turn_manager = TurnManager.new()
 	add_child(turn_manager)
@@ -27,7 +35,7 @@ func _ready() -> void:
 	print("created turn_manager at: ", turn_manager.get_path())
 	await get_tree().process_frame
 	spawn_enemy()
-	
+	anim_setup()
 	turn_manager.turn_changed.connect(_on_turn_changed)
 	turn_manager.combat_ended.connect(_on_combat_ended)
 	player.died.connect(_on_player_died)
@@ -37,6 +45,16 @@ func _ready() -> void:
 	turn_manager.start_combat()
 	turn_manager.potion_use_count = player.get_node("PotionUseCount")
 	print("potion label assigned: ", turn_manager.potion_use_count)
+	await animation_player.animation_finished
+	combat_anims.play_intro()
+	
+	combat_anims.Slide_in_out_player_turn()
+	combat_anims.Potion_card_popup()
+	await get_tree().create_timer(2).timeout
+	combat_anims.slide_out_player_turn()
+	combat_anims.mid_bar_vanish()
+	
+	
 	
 
 
@@ -154,6 +172,7 @@ func spawn_enemy():
 	
 
 func _load_player_hp() -> void:
+	
 	var game_save = GameSave.load_or_create()
 	print("Loaded player_hp from save: ", game_save.player_hp)
 	if game_save.player_hp == -1:
@@ -162,3 +181,9 @@ func _load_player_hp() -> void:
 	player.current_hp = game_save.player_hp
 	player.hp_changed.emit(player.current_hp, player.max_hp)
 	
+func anim_setup():
+	label.position.x = 1500
+	stack_ui_0.position.y = 800
+	stack_ui_1.position.y = 800
+	stack_ui_2.position.y = 800
+	pass

@@ -103,6 +103,7 @@ func _on_start_combat_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/map.tscn")
 
 func _load_pending_drops() -> void:
+	print(GameState)
 	if GameState.pending_drops.is_empty():
 		print("No pending drops")
 		return

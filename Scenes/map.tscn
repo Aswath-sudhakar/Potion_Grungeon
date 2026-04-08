@@ -1,8 +1,10 @@
-[gd_scene format=3 uid="uid://1w2kkoorn7q8"]
+[gd_scene format=3 uid="uid://dfem25m45ncdb"]
 
 [ext_resource type="Script" uid="uid://vjh735k2s8b2" path="res://Scenes/map.gd" id="1_6q3n4"]
+[ext_resource type="PackedScene" uid="uid://ts3ow1d4hn4f" path="res://Scenes/Transition_animation.tscn" id="2_26yhd"]
 
 [node name="Node2D2" type="Node2D" unique_id=686901163]
+z_index = 1
 script = ExtResource("1_6q3n4")
 
 [node name="Button" type="Button" parent="." unique_id=1318603846]
@@ -53,5 +55,8 @@ offset_top = 548.0
 offset_right = 1118.5001
 offset_bottom = 610.0
 text = "Craft"
+
+[node name="Transition" parent="." unique_id=1492420982 instance=ExtResource("2_26yhd")]
+z_index = 2
 
 [connection signal="pressed" from="CraftButton" to="." method="_on_craft_button_pressed"]
