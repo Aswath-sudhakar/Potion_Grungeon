@@ -51,6 +51,7 @@ func _ready() -> void:
 	combat_anims.play_intro()
 	
 	combat_anims.Slide_in_out_player_turn()
+	combat_anims.card_holder_popup()
 	combat_anims.Potion_card_popup()
 	
 	await get_tree().create_timer(2).timeout

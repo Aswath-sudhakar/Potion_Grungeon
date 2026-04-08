@@ -1,8 +1,12 @@
 [gd_resource type="Resource" script_class="PotionData" format=3 uid="uid://edi8wo8s5c4x"]
 
 [ext_resource type="Script" uid="uid://ciorqmpe1smqk" path="res://Resources/Potion_effect.gd" id="1_808oq"]
-[ext_resource type="Texture2D" uid="uid://cgw4vtacl6nys" path="res://pixel-art-fantasy-potion-bottle-retro-gaming-magical-elixir-icon_1292377-14928-2079723527.jpg" id="1_mitpq"]
+[ext_resource type="Texture2D" uid="uid://bdnqn66sn03t0" path="res://drawn_art/materials/Untitled13_20260406133657.png" id="1_mitpq"]
 [ext_resource type="Script" uid="uid://dhvpsegrya5i8" path="res://Resources/Potion_Data.gd" id="2_mitpq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf1vs"]
+atlas = ExtResource("1_mitpq")
+region = Rect2(1152.5548, 26.013992, 358.6007, 357.2624)
 
 [sub_resource type="Resource" id="Resource_vf1vs"]
 script = ExtResource("1_808oq")
@@ -20,5 +24,5 @@ script = ExtResource("2_mitpq")
 drink_effects = Array[ExtResource("1_808oq")]([SubResource("Resource_vf1vs")])
 throw_effects = Array[ExtResource("1_808oq")]([SubResource("Resource_ygj8o")])
 PotionType = "Ice"
-Sprite = ExtResource("1_mitpq")
+Sprite = SubResource("AtlasTexture_vf1vs")
 metadata/_custom_type_script = "uid://dhvpsegrya5i8"

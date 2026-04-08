@@ -5,8 +5,8 @@
 
 [node name="PotionCard" type="PanelContainer" unique_id=1075817978]
 custom_minimum_size = Vector2(80, 80)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 120.0
+offset_bottom = 120.0
 script = ExtResource("1_tjird")
 
 [node name="Name" type="Label" parent="." unique_id=1403869646]

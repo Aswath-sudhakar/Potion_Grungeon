@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://cm67pwvoak6qb" path="res://Resources/Drops/Seal_drops.tres" id="2_hvsgk"]
 
 [node name="Electric_seal" type="Node2D" unique_id=854785808]
+position = Vector2(-2, -2)
 script = ExtResource("1_e54hv")
 attack = 25
 Weaknesses = Array[int]([3])
