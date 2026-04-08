@@ -75,7 +75,7 @@ script = ExtResource("7_qeyqd")
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="Potion_cards" type="VBoxContainer" parent="Combat_UI/PotionRow/StackUI0/VBoxContainer" unique_id=684244755]
+[node name="Potion_cards" type="Control" parent="Combat_UI/PotionRow/StackUI0/VBoxContainer" unique_id=1026728951]
 layout_mode = 2
 
 [node name="Action_buttons" type="HBoxContainer" parent="Combat_UI/PotionRow/StackUI0/VBoxContainer" unique_id=1297248781]
@@ -102,7 +102,7 @@ stack_index = 1
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="Potion_cards" type="VBoxContainer" parent="Combat_UI/PotionRow/StackUI1/VBoxContainer" unique_id=165284662]
+[node name="Potion_cards" type="Control" parent="Combat_UI/PotionRow/StackUI1/VBoxContainer" unique_id=954957891]
 layout_mode = 2
 
 [node name="Action_buttons" type="HBoxContainer" parent="Combat_UI/PotionRow/StackUI1/VBoxContainer" unique_id=187228943]
@@ -128,7 +128,7 @@ stack_index = 2
 custom_minimum_size = Vector2(80, 90)
 layout_mode = 2
 
-[node name="Potion_cards" type="VBoxContainer" parent="Combat_UI/PotionRow/StackUI2/VBoxContainer" unique_id=1697902271]
+[node name="Potion_cards" type="Control" parent="Combat_UI/PotionRow/StackUI2/VBoxContainer" unique_id=1779153138]
 layout_mode = 2
 
 [node name="Action_buttons" type="HBoxContainer" parent="Combat_UI/PotionRow/StackUI2/VBoxContainer" unique_id=502582173]

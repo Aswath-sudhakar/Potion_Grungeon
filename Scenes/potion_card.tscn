@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://gnn6lbehpqrf"]
 
 [ext_resource type="Script" uid="uid://x0nqatywu782" path="res://potion_card.gd" id="1_tjird"]
+[ext_resource type="Texture2D" uid="uid://bltdiaaitfk7d" path="res://drawn_art/potion_crafting/card.PNG" id="2_x4gu4"]
 
 [node name="PotionCard" type="PanelContainer" unique_id=1075817978]
 custom_minimum_size = Vector2(80, 80)
@@ -12,6 +13,12 @@ script = ExtResource("1_tjird")
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=611698825]
+z_index = 1
 layout_mode = 2
 expand_mode = 2
 stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=2008220248]
+layout_mode = 2
+texture = ExtResource("2_x4gu4")
+expand_mode = 2

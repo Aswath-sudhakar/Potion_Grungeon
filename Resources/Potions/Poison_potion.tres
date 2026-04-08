@@ -1,6 +1,5 @@
 [gd_resource type="Resource" script_class="PotionData" format=3 uid="uid://vjfvyqm85hym"]
 
-[ext_resource type="Texture2D" uid="uid://unly78d7j005" path="res://drawn_art/enemies/penguin_2.PNG" id="1_h5wpa"]
 [ext_resource type="Script" uid="uid://ciorqmpe1smqk" path="res://Resources/Potion_effect.gd" id="1_limv2"]
 [ext_resource type="Script" uid="uid://dhvpsegrya5i8" path="res://Resources/Potion_Data.gd" id="2_limv2"]
 [ext_resource type="Resource" uid="uid://biiomvg42n8fo" path="res://Resources/Status/Poison.tres" id="3_h5wpa"]
@@ -24,5 +23,4 @@ script = ExtResource("2_limv2")
 drink_effects = Array[ExtResource("1_limv2")]([SubResource("Resource_fkllf")])
 throw_effects = Array[ExtResource("1_limv2")]([SubResource("Resource_limv2")])
 PotionType = "Poison"
-Sprite = ExtResource("1_h5wpa")
 metadata/_custom_type_script = "uid://dhvpsegrya5i8"
