@@ -50,7 +50,7 @@ func end_enemy_turn() -> void:
 		potion_use_count.text = str(MAX_POTIONS_PER_TURN)
 	turn_changed.emit(state)
 
-func check_combat_end(player: PlayerActor, enemy: EnemyActor) -> bool:
+func check_combat_end(player: Player_Actor, enemy: EnemyActor) -> bool:
 	if not enemy.is_alive():
 		state = TurnState.COMBAT_END
 		combat_ended.emit(true)

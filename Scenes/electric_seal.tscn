@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://hmn14m3kpxl1"]
+
+[ext_resource type="Texture2D" uid="uid://0527omqcgjuj" path="res://drawn_art/enemies/seal_1.PNG" id="1_2u0dg"]
+[ext_resource type="Script" uid="uid://5dcdornnpsva" path="res://Scripts/Enemy_actor.gd" id="1_e54hv"]
+[ext_resource type="PackedScene" uid="uid://bbkj1lwib6m71" path="res://Scenes/healthbar.tscn" id="2_e54hv"]
+[ext_resource type="Resource" uid="uid://cm67pwvoak6qb" path="res://Resources/Drops/Seal_drops.tres" id="2_hvsgk"]
+
+[node name="Electric_seal" type="Node2D" unique_id=854785808]
+position = Vector2(-2, -2)
+script = ExtResource("1_e54hv")
+attack = 25
+Weaknesses = Array[int]([3])
+Resistances = Array[int]([1])
+enemy_loot = ExtResource("2_hvsgk")
+actor_name = "Electric Seal"
+max_hp = 125
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=494501683]
+position = Vector2(930.00006, 291)
+scale = Vector2(0.13625728, 0.16050808)
+texture = ExtResource("1_2u0dg")
+
+[node name="Healthbar" parent="." unique_id=1250862296 instance=ExtResource("2_e54hv")]
+offset_left = 831.0
+offset_top = 386.0
+offset_right = 1030.0
+offset_bottom = 519.0
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bv6vj7g3ocj8j"]
+
+[ext_resource type="Script" uid="uid://uwi3dcefevuh" path="res://Resources/Item.gd" id="1_1wd3d"]
+[ext_resource type="Texture2D" uid="uid://cylra64rq01tk" path="res://drawn_art/materials/1000000041.png" id="1_vbykn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rutb"]
+atlas = ExtResource("1_vbykn")
+region = Rect2(1136.101, 1165.6002, 399.89905, 403.70056)
+
+[resource]
+script = ExtResource("1_1wd3d")
+title = "Geode"
+Icon = SubResource("AtlasTexture_3rutb")
+metadata/_custom_type_script = "uid://uwi3dcefevuh"

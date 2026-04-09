@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dw58754y4b84o"]
+
+[ext_resource type="Texture2D" uid="uid://cylra64rq01tk" path="res://drawn_art/materials/1000000041.png" id="1_2j33n"]
+[ext_resource type="Script" uid="uid://uwi3dcefevuh" path="res://Resources/Item.gd" id="1_yp5pn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncvjk"]
+atlas = ExtResource("1_2j33n")
+region = Rect2(393.62067, 402.5001, 375.10052, 370.26047)
+
+[resource]
+script = ExtResource("1_yp5pn")
+title = "Magical_grass"
+Icon = SubResource("AtlasTexture_ncvjk")
+metadata/_custom_type_script = "uid://uwi3dcefevuh"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://c0j2k7banues2"]
+
+[ext_resource type="Texture2D" uid="uid://b5et1c44m4qwl" path="res://drawn_art/player_sprite_1.PNG" id="1_dloyi"]
+[ext_resource type="Script" uid="uid://uwi3dcefevuh" path="res://Resources/Item.gd" id="1_p175m"]
+[ext_resource type="Resource" uid="uid://vjfvyqm85hym" path="res://Resources/Potions/Poison_potion.tres" id="2_khtcj"]
+
+[resource]
+script = ExtResource("1_p175m")
+title = "Poison Potion"
+Icon = ExtResource("1_dloyi")
+potion_data = ExtResource("2_khtcj")
+metadata/_custom_type_script = "uid://uwi3dcefevuh"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://ymuawinldt8y"]
+
+[ext_resource type="Texture2D" uid="uid://dlj04miipohcf" path="res://icon.svg" id="1_hxeog"]
+[ext_resource type="Script" uid="uid://uwi3dcefevuh" path="res://Resources/Item.gd" id="1_re1xp"]
+[ext_resource type="Resource" uid="uid://cu8fvobxb7ohn" path="res://Resources/Potions/Fire_potion.tres" id="2_0b5ia"]
+
+[resource]
+script = ExtResource("1_re1xp")
+title = "Fire Potion"
+Icon = ExtResource("1_hxeog")
+potion_data = ExtResource("2_0b5ia")
+metadata/_custom_type_script = "uid://uwi3dcefevuh"

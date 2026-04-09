@@ -1,8 +1,12 @@
 [gd_resource type="Resource" script_class="PotionData" format=3 uid="uid://nf6ubl38gf5"]
 
-[ext_resource type="Texture2D" uid="uid://bsfdi53ax7sf5" path="res://0270-1545658584.png" id="1_gqb14"]
+[ext_resource type="Texture2D" uid="uid://bdnqn66sn03t0" path="res://drawn_art/materials/Untitled13_20260406133657.png" id="1_gqb14"]
 [ext_resource type="Script" uid="uid://ciorqmpe1smqk" path="res://Resources/Potion_effect.gd" id="2_fumtx"]
 [ext_resource type="Script" uid="uid://dhvpsegrya5i8" path="res://Resources/Potion_Data.gd" id="3_r4b1s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fumtx"]
+atlas = ExtResource("1_gqb14")
+region = Rect2(1154.4719, 409.84073, 344.85352, 401.95346)
 
 [sub_resource type="Resource" id="Resource_3e8tr"]
 script = ExtResource("2_fumtx")
@@ -11,7 +15,7 @@ metadata/_custom_type_script = "uid://ciorqmpe1smqk"
 
 [sub_resource type="Resource" id="Resource_dg2nv"]
 script = ExtResource("2_fumtx")
-value = 20
+value = 150
 damage_type = 2
 metadata/_custom_type_script = "uid://ciorqmpe1smqk"
 
@@ -20,5 +24,5 @@ script = ExtResource("3_r4b1s")
 drink_effects = Array[ExtResource("2_fumtx")]([SubResource("Resource_3e8tr")])
 throw_effects = Array[ExtResource("2_fumtx")]([SubResource("Resource_dg2nv")])
 PotionType = "Lightning"
-Sprite = ExtResource("1_gqb14")
+Sprite = SubResource("AtlasTexture_fumtx")
 metadata/_custom_type_script = "uid://dhvpsegrya5i8"

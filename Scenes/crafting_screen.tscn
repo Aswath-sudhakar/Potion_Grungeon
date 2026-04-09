@@ -1,12 +1,28 @@
 [gd_scene format=3 uid="uid://bgyafitn0pjn1"]
 
 [ext_resource type="PackedScene" uid="uid://nux2jg77b60l" path="res://Scenes/slot.tscn" id="1_6yhhd"]
-[ext_resource type="Script" path="res://Scripts/Crafting_screen.gd" id="1_pvn6g"]
-[ext_resource type="Resource" path="res://Resources/Ingredients/Potato.tres" id="2_pvn6g"]
-[ext_resource type="Resource" uid="uid://b60ubfbob4ex2" path="res://Resources/Ingredients/Banana.tres" id="3_cnx6o"]
+[ext_resource type="Script" uid="uid://f26odh8ipqtk" path="res://Scripts/Crafting_screen.gd" id="1_pvn6g"]
+[ext_resource type="Script" uid="uid://uwi3dcefevuh" path="res://Resources/Item.gd" id="2_y6s7e"]
+[ext_resource type="Resource" uid="uid://ymuawinldt8y" path="res://Resources/Potion_items/FirePotion.tres" id="3_j8jxy"]
+[ext_resource type="Resource" uid="uid://vbu5wpo3870m" path="res://Resources/Potion_items/IcePotion.tres" id="4_1rddk"]
+[ext_resource type="PackedScene" uid="uid://bm35b3jxcipgb" path="res://Scenes/potion_stacks.tscn" id="4_c6pnj"]
 [ext_resource type="PackedScene" uid="uid://rjngt34ewrdt" path="res://Scenes/inventory.tscn" id="4_cnx6o"]
+[ext_resource type="Resource" uid="uid://c0j2k7banues2" path="res://Resources/Potion_items/PoisonPotion.tres" id="5_hvcgu"]
+[ext_resource type="Resource" uid="uid://d3x7xlaasm0b" path="res://Resources/Potion_items/LightningPotion.tres" id="6_8tdxw"]
+[ext_resource type="Texture2D" uid="uid://dipmq6rug7iav" path="res://drawn_art/potion_crafting.PNG" id="10_j8jxy"]
+[ext_resource type="Texture2D" uid="uid://d3s736ajhq3do" path="res://drawn_art/craft_button_icon.PNG" id="11_1rddk"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j8jxy"]
+blend_mode = 1
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1rddk"]
+blend_mode = 2
+light_mode = 2
 
 [node name="CraftingScreen" type="Control" unique_id=1806607086]
+visibility_layer = 2
+z_index = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +34,15 @@ offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pvn6g")
+default_potion_items = Array[ExtResource("2_y6s7e")]([ExtResource("3_j8jxy"), ExtResource("4_1rddk"), ExtResource("5_hvcgu"), ExtResource("6_8tdxw")])
+
+[node name="Inventory" parent="." unique_id=981174924 instance=ExtResource("4_cnx6o")]
+z_index = -1
+layout_mode = 1
+offset_left = 58.0
+offset_top = 40.0
+offset_right = -826.0
+offset_bottom = -515.0
 
 [node name="CraftingSlots" type="HBoxContainer" parent="." unique_id=131163890]
 layout_mode = 1
@@ -26,24 +51,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -381.0
-offset_top = -165.0
-offset_right = -337.0
-offset_bottom = -145.0
+offset_left = -353.0
+offset_top = -71.0
+offset_right = 105.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Slot" parent="CraftingSlots" unique_id=319273917 instance=ExtResource("1_6yhhd")]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-item = ExtResource("2_pvn6g")
-Amount = 1
+[node name="ResultLabel" type="Label" parent="." unique_id=1790707013]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 376.0
+offset_right = 469.0
+offset_bottom = 399.0
+text = "banana"
 
-[node name="Slot2" parent="CraftingSlots" unique_id=1016346756 instance=ExtResource("1_6yhhd")]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-item = ExtResource("3_cnx6o")
-Amount = 1
+[node name="CraftButton" type="Button" parent="." unique_id=1257347873]
+layout_mode = 0
+offset_left = 899.0
+offset_top = 466.0
+offset_right = 1089.0
+offset_bottom = 529.0
+text = "Craft!"
 
 [node name="ResultSlot" parent="." unique_id=1281090228 instance=ExtResource("1_6yhhd")]
 layout_mode = 0
@@ -52,23 +81,68 @@ offset_top = 151.0
 offset_right = 394.0
 offset_bottom = 191.0
 
-[node name="CraftButton" type="Button" parent="." unique_id=1257347873]
-layout_mode = 0
-offset_left = 233.0
-offset_top = 211.0
-offset_right = 367.0
-offset_bottom = 247.0
-text = "Craft!"
-
-[node name="ResultLabel" type="Label" parent="." unique_id=1790707013]
-layout_mode = 0
-offset_left = 277.0
-offset_top = 112.0
-offset_right = 336.0
-offset_bottom = 135.0
-text = "banana"
-
-[node name="Inventory" parent="." unique_id=981174924 instance=ExtResource("4_cnx6o")]
+[node name="PotionStacks" parent="." unique_id=1315817940 instance=ExtResource("4_c6pnj")]
+z_index = 3
 layout_mode = 1
-offset_right = -969.0
-offset_bottom = -559.0
+anchors_preset = -1
+anchor_top = 0.096
+offset_left = -444.0
+offset_top = 244.216
+offset_right = -1025.0
+offset_bottom = -85.0
+
+[node name="StartCombat" type="Button" parent="." unique_id=1221707147]
+layout_mode = 0
+offset_left = 922.0
+offset_top = 533.0
+offset_right = 1033.0
+offset_bottom = 564.0
+text = "Start_combat"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1785076023]
+z_index = -2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.943
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -10.434082
+offset_bottom = 6.0
+mouse_filter = 2
+texture = ExtResource("10_j8jxy")
+expand_mode = 2
+
+[node name="Slot" parent="." unique_id=319273917 instance=ExtResource("1_6yhhd")]
+modulate = Color(1.0845727, 1.0845727, 1.0845727, 1)
+clip_children = 1
+z_index = 1
+texture_repeat = 3
+material = SubResource("CanvasItemMaterial_j8jxy")
+layout_mode = 0
+offset_left = 520.0
+offset_top = 233.0
+offset_right = 560.0
+offset_bottom = 274.0
+
+[node name="Slot2" parent="." unique_id=1016346756 instance=ExtResource("1_6yhhd")]
+clip_children = 1
+z_index = 1
+material = SubResource("CanvasItemMaterial_1rddk")
+layout_mode = 0
+offset_left = 291.0
+offset_top = 239.0
+offset_right = 331.0
+offset_bottom = 280.0
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=24020132]
+layout_mode = 0
+offset_left = 860.0
+offset_top = 398.0
+offset_right = 1117.0
+offset_bottom = 655.0
+mouse_filter = 2
+texture = ExtResource("11_1rddk")
+expand_mode = 4
+
+[connection signal="pressed" from="StartCombat" to="." method="_on_start_combat_pressed"]

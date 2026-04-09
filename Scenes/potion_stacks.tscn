@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bm35b3jxcipgb"]
+
+[ext_resource type="PackedScene" uid="uid://nux2jg77b60l" path="res://Scenes/slot.tscn" id="1_cgpd8"]
+
+[node name="PotionStacks" type="Control" unique_id=1315817940]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=832303409]
+z_index = 2
+layout_mode = 0
+offset_left = 491.0
+offset_top = 34.0
+offset_right = 617.0
+offset_bottom = 250.0
+
+[node name="Stack0" type="VBoxContainer" parent="HBoxContainer" unique_id=1341674178]
+layout_mode = 2
+
+[node name="Slot" parent="HBoxContainer/Stack0" unique_id=319273917 instance=ExtResource("1_cgpd8")]
+layout_mode = 2
+
+[node name="Slot2" parent="HBoxContainer/Stack0" unique_id=1622954392 instance=ExtResource("1_cgpd8")]
+layout_mode = 2
+
+[node name="Slot3" parent="HBoxContainer/Stack0" unique_id=1142984621 instance=ExtResource("1_cgpd8")]
+layout_mode = 2
+
+[node name="Slot4" parent="HBoxContainer/Stack0" unique_id=1685070174 instance=ExtResource("1_cgpd8")]
+layout_mode = 2
+
+[node name="Slot5" parent="HBoxContainer/Stack0" unique_id=94108179 instance=ExtResource("1_cgpd8")]
+layout_mode = 2
+
+[node name="Stack1" type="VBoxContainer" parent="HBoxContainer" unique_id=1495025839]
+layout_mode = 2
+
+[node name="Slot" parent="HBoxContainer/Stack1" unique_id=783765235 instance=ExtResource("1_cgpd8")]
+layout_mode = 2
+
+[node name="Slot2" parent="HBoxContainer/Stack1" unique_id=1854526782 instance=ExtResource("1_cgpd8")]
+layout_mode = 2
+
+[node name="Slot3" parent="HBoxContainer/Stack1" unique_id=1839420853 instance=ExtResource("1_cgpd8")]
+layout_mode = 2
+
+[node name="Slot4" parent="HBoxContainer/Stack1" unique_id=2018495706 instance=ExtResource("1_cgpd8")]
+layout_mode = 2
+
+[node name="Slot5" parent="HBoxContainer/Stack1" unique_id=755822772 instance=ExtResource("1_cgpd8")]
+layout_mode = 2
+
+[node name="Stack2" type="VBoxContainer" parent="HBoxContainer" unique_id=1482530869]
+layout_mode = 2
+
+[node name="Slot" parent="HBoxContainer/Stack2" unique_id=752636877 instance=ExtResource("1_cgpd8")]
+layout_mode = 2
+
+[node name="Slot2" parent="HBoxContainer/Stack2" unique_id=1972262889 instance=ExtResource("1_cgpd8")]
+layout_mode = 2
+
+[node name="Slot3" parent="HBoxContainer/Stack2" unique_id=1668884762 instance=ExtResource("1_cgpd8")]
+layout_mode = 2
+
+[node name="Slot4" parent="HBoxContainer/Stack2" unique_id=154401303 instance=ExtResource("1_cgpd8")]
+layout_mode = 2
+
+[node name="Slot5" parent="HBoxContainer/Stack2" unique_id=903997693 instance=ExtResource("1_cgpd8")]
+layout_mode = 2

@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Potion_Grungeon"
+run/main_scene="uid://dip23rcv07u4a"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameState="*uid://cjdtltvpny7op"
 
 [physics]
 
