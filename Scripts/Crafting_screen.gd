@@ -6,8 +6,8 @@ var game_save: GameSave
 
 @onready var craft_button: Button = $CraftButton
 @onready var result_label: Label = $ResultLabel
-@onready var slot = $CraftingSlots/Slot
-@onready var slot_2 = $CraftingSlots/Slot2
+@onready var slot = $Slot
+@onready var slot_2 = $Slot2
 @export var default_potion_items: Array[Item] = []
 
 func _ready() -> void:

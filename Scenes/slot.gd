@@ -5,6 +5,9 @@ extends Panel
 var dragged_item: Item = null
 var dragged_amount: int = 0
 
+var hover_size := Vector2(1.5,1.5)
+var normal_size := Vector2(1,1)
+
 @export var item: Item = null:
 	set(value):
 		item = value
@@ -22,7 +25,11 @@ var dragged_amount: int = 0
 			item = null
 
 func _ready() -> void:
+	pivot_offset = size / 2
 	update_display()
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
+
 
 func receive_item(new_item: Item, new_amount: int) -> void:
 	if not is_node_ready():
@@ -96,4 +103,13 @@ func _notification(what: int) -> void:
 			Amount = dragged_amount
 		dragged_item = null
 		dragged_amount = 0
+		
+func _on_mouse_entered():
+	print("hovered")
+	var tween = create_tween()
+	tween.tween_property(self, "scale", hover_size, 0.15)
+
+func _on_mouse_exited():
+	var tween = create_tween()
+	tween.tween_property(self, "scale", normal_size, 0.15)
 				

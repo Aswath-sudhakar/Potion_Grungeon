@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://rjngt34ewrdt"]
 
 [ext_resource type="PackedScene" uid="uid://nux2jg77b60l" path="res://Scenes/slot.tscn" id="1_wdn4f"]
+[ext_resource type="Resource" uid="uid://beyvgy6xuqflk" path="res://Resources/Ingredients/Cloud_berry.tres" id="2_k5gp2"]
 
 [node name="Inventory" type="Control" unique_id=981174924]
 layout_mode = 3
@@ -18,17 +19,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -572.0
-offset_top = -317.0
-offset_right = -312.0
-offset_bottom = -233.0
+offset_left = -495.0
+offset_top = -292.0
+offset_right = 77.0
+offset_bottom = -168.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 6
+columns = 9
 
 [node name="Slot" parent="UI/GridContainer" unique_id=319273917 instance=ExtResource("1_wdn4f")]
 z_index = -1
 layout_mode = 2
+item = ExtResource("2_k5gp2")
+Amount = 1
 
 [node name="Slot2" parent="UI/GridContainer" unique_id=1551890731 instance=ExtResource("1_wdn4f")]
 z_index = -1
@@ -73,3 +76,39 @@ layout_mode = 2
 [node name="Slot12" parent="UI/GridContainer" unique_id=1664654431 instance=ExtResource("1_wdn4f")]
 z_index = -1
 layout_mode = 2
+
+[node name="Slot13" parent="UI/GridContainer" unique_id=1745409589 instance=ExtResource("1_wdn4f")]
+z_index = -1
+layout_mode = 2
+item = ExtResource("2_k5gp2")
+Amount = 1
+
+[node name="Slot14" parent="UI/GridContainer" unique_id=294432069 instance=ExtResource("1_wdn4f")]
+z_index = -1
+layout_mode = 2
+item = ExtResource("2_k5gp2")
+Amount = 1
+
+[node name="Slot15" parent="UI/GridContainer" unique_id=1843075073 instance=ExtResource("1_wdn4f")]
+z_index = -1
+layout_mode = 2
+item = ExtResource("2_k5gp2")
+Amount = 1
+
+[node name="Slot16" parent="UI/GridContainer" unique_id=253287475 instance=ExtResource("1_wdn4f")]
+z_index = -1
+layout_mode = 2
+item = ExtResource("2_k5gp2")
+Amount = 1
+
+[node name="Slot17" parent="UI/GridContainer" unique_id=1492803918 instance=ExtResource("1_wdn4f")]
+z_index = -1
+layout_mode = 2
+item = ExtResource("2_k5gp2")
+Amount = 1
+
+[node name="Slot18" parent="UI/GridContainer" unique_id=1001568343 instance=ExtResource("1_wdn4f")]
+z_index = -1
+layout_mode = 2
+item = ExtResource("2_k5gp2")
+Amount = 1

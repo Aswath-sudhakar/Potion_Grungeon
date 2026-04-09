@@ -8,18 +8,23 @@ class_name Combat_animations
 @onready var stack_ui_0: PotionStackUI = $"../Combat_UI/PotionRow/StackUI0"
 @onready var stack_ui_1: PotionStackUI = $"../Combat_UI/PotionRow/StackUI1"
 @onready var stack_ui_2: PotionStackUI = $"../Combat_UI/PotionRow/StackUI2"
+@onready var potion_row: HBoxContainer = $"../Combat_UI/PotionRow"
+@onready var potion_card_holder: TextureRect = $"../Combat_UI/Potion_card_holder"
 
 var center_y = position.y
 var center_x = position.x
 ## center is 324 for y
 
+
+
 func play_intro():
+
 	 
 	size.y = 0
 	modulate.a = 0
 	position.y =  284
 	position.x = center_x 
-	#balls	
+
 
 	var tween = create_tween()
 	tween.set_parallel(true)   
@@ -64,32 +69,42 @@ func slide_out_player_turn():
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	
 func Potion_card_popup():
+	
 	stack_ui_0.position.y += 200
 	stack_ui_1.position.y += 200
 	stack_ui_2.position.y += 200
+	
+
 	var tween = create_tween()
 	tween.set_parallel(true)
-	tween.tween_property(stack_ui_0, "position:y", -20, .4)\
-	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	
-	tween.tween_property(stack_ui_0, "position:y", 0, .4)\
+	tween.tween_property(stack_ui_0, "position:y", -20, .4)\
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	
 	
 	tween.tween_property(stack_ui_1, "position:y", -20, .6)\
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	
-	tween.tween_property(stack_ui_1, "position:y", 0, .6)\
-	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
-	
+
 	
 	tween.tween_property(stack_ui_2, "position:y", -20, .8)\
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	tween.set_parallel(false)
 	
-	tween.tween_property(stack_ui_2, "position:y", 0, .8)\
+	tween.tween_property(stack_ui_0, "position:y", 0, .1)\
+	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	
+	tween.tween_property(stack_ui_1, "position:y", 0, .1)\
+	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	
+	tween.tween_property(stack_ui_2, "position:y", 0, .1)\
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	
 	
 	
+func card_holder_popup():
+	var tween = create_tween()
 	
+	tween.tween_property(potion_card_holder, "position:y", 375, .8)\
+	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	pass

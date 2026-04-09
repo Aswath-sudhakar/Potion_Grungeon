@@ -3,13 +3,34 @@
 [ext_resource type="Script" uid="uid://j0du0yqabp6h" path="res://Scenes/combat_manager.gd" id="1_w7k78"]
 [ext_resource type="Script" uid="uid://dwks5utkbt2nj" path="res://Scripts/combat_ui.gd" id="2_1otgo"]
 [ext_resource type="Script" uid="uid://c5j5liomrp17d" path="res://Scripts/Player.gd" id="2_1ruyk"]
-[ext_resource type="Resource" path="res://Resources/EncouterPool.tres" id="2_ww2ai"]
+[ext_resource type="Resource" uid="uid://c7mudv58joanb" path="res://Resources/EncouterPool.tres" id="2_ww2ai"]
+[ext_resource type="Texture2D" uid="uid://bse61imstlr8x" path="res://drawn_art/potion_crafting/inventory_card.PNG" id="6_heh15"]
 [ext_resource type="Script" uid="uid://c7jj6uqsqxbwq" path="res://Scenes/PotionStackUI.gd" id="7_qeyqd"]
 [ext_resource type="Texture2D" uid="uid://dgmeweh4ny4xq" path="res://drawn_art/background_battle.PNG" id="8_lrv64"]
 [ext_resource type="Script" uid="uid://b1en02cofjud" path="res://Scenes/Turn_Animation.gd" id="9_qeyqd"]
 [ext_resource type="Texture2D" uid="uid://b5et1c44m4qwl" path="res://drawn_art/player_sprite_1.PNG" id="10_heh15"]
 [ext_resource type="PackedScene" uid="uid://ts3ow1d4hn4f" path="res://Scenes/Transition_animation.tscn" id="10_k7mbx"]
 [ext_resource type="PackedScene" uid="uid://bbkj1lwib6m71" path="res://Scenes/healthbar.tscn" id="11_heh15"]
+[ext_resource type="Script" uid="uid://bgse4blup2pi7" path="res://Scenes/Candle_light.gd" id="11_upb72"]
+[ext_resource type="Script" uid="uid://ct43mbo8na8bo" path="res://Scenes/point_light_2d_2.gd" id="12_rssjf"]
+
+[sub_resource type="Gradient" id="Gradient_rssjf"]
+offsets = PackedFloat32Array(0, 0.0062111802, 0.9751553)
+colors = PackedColorArray(0, 0, 0, 1, 0.5403225, 0.31863457, 6.738305e-07, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_heh15"]
+gradient = SubResource("Gradient_rssjf")
+fill = 1
+fill_from = Vector2(0.52, 0.4888889)
+fill_to = Vector2(0.74666667, 0.8088889)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rssjf"]
+particle_flag_disable_z = true
+gravity = Vector3(0, -98, 0)
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = 99.99999
+scale_min = 2.2
+scale_max = 3.6
 
 [node name="Battle" type="Node" unique_id=1205009668]
 
@@ -33,16 +54,17 @@ grow_vertical = 2
 script = ExtResource("2_1otgo")
 
 [node name="PotionRow" type="HBoxContainer" parent="Combat_UI" unique_id=516619644]
+z_index = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -286.5
-offset_top = -247.0
-offset_right = 285.5
-offset_bottom = -73.0
+offset_left = -285.5
+offset_top = -230.0
+offset_right = 286.5
+offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -52,9 +74,10 @@ size_flags_horizontal = 3
 script = ExtResource("7_qeyqd")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Combat_UI/PotionRow/StackUI0" unique_id=2058596951]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="Potion_cards" type="VBoxContainer" parent="Combat_UI/PotionRow/StackUI0/VBoxContainer" unique_id=684244755]
+[node name="Potion_cards" type="Control" parent="Combat_UI/PotionRow/StackUI0/VBoxContainer" unique_id=1026728951]
 layout_mode = 2
 
 [node name="Action_buttons" type="HBoxContainer" parent="Combat_UI/PotionRow/StackUI0/VBoxContainer" unique_id=1297248781]
@@ -78,9 +101,10 @@ script = ExtResource("7_qeyqd")
 stack_index = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Combat_UI/PotionRow/StackUI1" unique_id=1912749233]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="Potion_cards" type="VBoxContainer" parent="Combat_UI/PotionRow/StackUI1/VBoxContainer" unique_id=165284662]
+[node name="Potion_cards" type="Control" parent="Combat_UI/PotionRow/StackUI1/VBoxContainer" unique_id=954957891]
 layout_mode = 2
 
 [node name="Action_buttons" type="HBoxContainer" parent="Combat_UI/PotionRow/StackUI1/VBoxContainer" unique_id=187228943]
@@ -103,9 +127,10 @@ script = ExtResource("7_qeyqd")
 stack_index = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Combat_UI/PotionRow/StackUI2" unique_id=1522918917]
+custom_minimum_size = Vector2(80, 90)
 layout_mode = 2
 
-[node name="Potion_cards" type="VBoxContainer" parent="Combat_UI/PotionRow/StackUI2/VBoxContainer" unique_id=1697902271]
+[node name="Potion_cards" type="Control" parent="Combat_UI/PotionRow/StackUI2/VBoxContainer" unique_id=1779153138]
 layout_mode = 2
 
 [node name="Action_buttons" type="HBoxContainer" parent="Combat_UI/PotionRow/StackUI2/VBoxContainer" unique_id=502582173]
@@ -115,6 +140,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Drink!"
+expand_icon = true
 
 [node name="Throw_button" type="Button" parent="Combat_UI/PotionRow/StackUI2/VBoxContainer/Action_buttons" unique_id=1934087318]
 layout_mode = 2
@@ -128,14 +154,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -51.5
-offset_top = 21.0
-offset_right = 53.5
-offset_bottom = 59.0
+offset_left = -56.5
+offset_top = 2.0
+offset_right = 48.5
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "End Turn
 "
+
+[node name="Potion_card_holder" type="TextureRect" parent="Combat_UI" unique_id=1392001626]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 579.0
+offset_right = 924.0
+offset_bottom = 845.0
+mouse_filter = 2
+texture = ExtResource("6_heh15")
+expand_mode = 2
 
 [node name="PlayerActor" type="Node" parent="." unique_id=1649066488]
 script = ExtResource("2_1ruyk")
@@ -169,20 +205,6 @@ text = "3"
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=513967701]
 layer = -1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=186905753]
-light_mask = 2
-visibility_layer = 2
-z_index = -2
-anchors_preset = -1
-anchor_right = 4.5230002
-anchor_bottom = 6.281
-offset_left = -81.0
-offset_top = -5.0
-offset_right = -4057.496
-offset_bottom = -3426.0881
-texture = ExtResource("8_lrv64")
-expand_mode = 2
-
 [node name="ColorRect" type="ColorRect" parent="." unique_id=457225815]
 anchors_preset = 14
 anchor_top = 0.5
@@ -207,3 +229,44 @@ offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Player turn!"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1538697584]
+position = Vector2(246.00002, 54.999996)
+scale = Vector2(0.64475685, 0.66062915)
+energy = 1.47
+texture = SubResource("GradientTexture2D_heh15")
+texture_scale = 14.32
+script = ExtResource("11_upb72")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=517616130]
+position = Vector2(913, 35)
+scale = Vector2(0.64475685, 0.66062915)
+energy = 1.47
+texture = SubResource("GradientTexture2D_heh15")
+texture_scale = 14.32
+script = ExtResource("12_rssjf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=186905753]
+z_index = -1
+anchors_preset = -1
+anchor_right = 4.5230002
+anchor_bottom = 6.281
+offset_left = -80.0
+offset_top = -2.0
+offset_right = -4047.496
+offset_bottom = -3411.0881
+mouse_filter = 2
+texture = ExtResource("8_lrv64")
+expand_mode = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=104332419]
+position = Vector2(246, 49)
+amount = 4
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_rssjf")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=1349024343]
+position = Vector2(912, 32)
+amount = 4
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_rssjf")
