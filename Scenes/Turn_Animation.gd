@@ -24,13 +24,13 @@ func play_intro():
 	var tween = create_tween()
 	tween.set_parallel(true)   
 
-	# Expand height
+	
 	tween.tween_property(self, "size:y", final_height, duration)\
 		 .set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 
 
 
-	# Fade in
+
 	tween.tween_property(self, "modulate:a", 1.0, duration)\
 		 .set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	
