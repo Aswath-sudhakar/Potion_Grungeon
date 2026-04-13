@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://c0j2k7banues2" path="res://Resources/Potion_items/PoisonPotion.tres" id="5_hvcgu"]
 [ext_resource type="Resource" uid="uid://d3x7xlaasm0b" path="res://Resources/Potion_items/LightningPotion.tres" id="6_8tdxw"]
 [ext_resource type="Texture2D" uid="uid://dipmq6rug7iav" path="res://drawn_art/potion_crafting.PNG" id="10_j8jxy"]
-[ext_resource type="Texture2D" uid="uid://d3s736ajhq3do" path="res://drawn_art/craft_button_icon.PNG" id="11_1rddk"]
+[ext_resource type="Texture2D" uid="uid://dgvapgbpcc173" path="res://drawn_art/potion_crafting/crafting_button.PNG" id="11_1rddk"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j8jxy"]
 blend_mode = 1
@@ -68,11 +68,16 @@ text = "banana"
 
 [node name="CraftButton" type="Button" parent="." unique_id=1257347873]
 layout_mode = 0
-offset_left = 899.0
-offset_top = 466.0
-offset_right = 1089.0
-offset_bottom = 529.0
+offset_left = 924.0
+offset_top = 410.0
+offset_right = 1022.0
+offset_bottom = 473.0
 text = "Craft!"
+
+[node name="Sprite2D" type="Sprite2D" parent="CraftButton" unique_id=447022054]
+position = Vector2(3, 2)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_1rddk")
 
 [node name="ResultSlot" parent="." unique_id=1281090228 instance=ExtResource("1_6yhhd")]
 layout_mode = 0
@@ -134,15 +139,5 @@ offset_left = 291.0
 offset_top = 239.0
 offset_right = 331.0
 offset_bottom = 280.0
-
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=24020132]
-layout_mode = 0
-offset_left = 860.0
-offset_top = 398.0
-offset_right = 1117.0
-offset_bottom = 655.0
-mouse_filter = 2
-texture = ExtResource("11_1rddk")
-expand_mode = 4
 
 [connection signal="pressed" from="StartCombat" to="." method="_on_start_combat_pressed"]
